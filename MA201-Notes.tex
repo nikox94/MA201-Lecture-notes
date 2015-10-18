@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage[unicode=true]{hyperref}
+\usepackage{breakurl}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{esvect}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+  \theoremstyle{plain}
+  \newtheorem{thm}{\protect\theoremname}[section]
+  \theoremstyle{definition}
+  \newtheorem{defn}[thm]{\protect\definitionname}
+  \theoremstyle{remark}
+  \newtheorem*{notation*}{\protect\notationname}
+  \theoremstyle{definition}
+  \newtheorem*{example*}{\protect\examplename}
+  \theoremstyle{remark}
+  \newtheorem*{note*}{\protect\notename}
+  \theoremstyle{plain}
+  \newtheorem{lem}[thm]{\protect\lemmaname}
+  \theoremstyle{definition}
+  \newtheorem*{defn*}{\protect\definitionname}
+  \theoremstyle{definition}
+  \newtheorem{example}[thm]{\protect\examplename}
+  \theoremstyle{plain}
+  \newtheorem{cor}[thm]{\protect\corollaryname}
+  \theoremstyle{plain}
+  \newtheorem{prop}[thm]{\protect\propositionname}
+  \theoremstyle{plain}
+  \newtheorem*{prop*}{\protect\propositionname}
+  \theoremstyle{definition}
+  \newtheorem{xca}[thm]{\protect\exercisename}
+  \newcommand\thmsname{\protect\theoremname}
+%  \newcommand\nm@thmtype{theorem}
+  \theoremstyle{plain}
+  \newtheorem*{namedtheorem}{\thmsname}
+  \newenvironment{namedthm}[1][Undefined Theorem Name]{
+   \ifx{#1}{Undefined Theorem Name}\renewcommand\nm@thmtype{theorem*}
+   \else\renewcommand\thmsname{#1}\renewcommand\nm@thmtype{namedtheorem}
+   \fi
+   \begin{\nm@thmtype}}
+   {\end{\nm@thmtype}}
+  
+  \providecommand{\corollaryname}{Следствие}
+  \providecommand{\definitionname}{Дефиниция}
+  \providecommand{\examplename}{Пример}
+  \providecommand{\exercisename}{Упражнение}
+  \providecommand{\lemmaname}{Лема}
+  \providecommand{\notationname}{Нотация}
+  \providecommand{\notename}{Забележка}
+  \providecommand{\propositionname}{Твърдение}
+  \providecommand{\remarkname}{Забележка}
+  \providecommand{\theoremname}{Теорема}
+
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\renewcommand*{\Vec}[1]{\mathbf{#1}}
+\newcommand*{\Z}{\Vec{0}}
+\newcommand*{\B}{\mathcal{B}}
+\newcommand*{\R}{\mathbb{R}}
+
+\title{Лекционни записки по Математически Анализ}
+\author{проф. Надежда Рибарска \\ Набрани от Никола Юруков}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Преговор}
+
+\subsection{$\mathbb{R}^n$}
+
+$\mathbb{R}^n$ е множеството $\{x = (x_1, x_2, ..., x_n): x_i \in \mathbb{R} i=1,2,..,n\}$.
+
+Сега нека имаме векторите $x = (x_1, x_2, ..., x_n)$ и $y = (y_1, y_2, ..., y_n)$, тогава имаме $x+y = (x_1+y_1, x_2+y_2, ..., x_n + y_n)$ тоест покоординатно събиране. При умножение със скалар (т.е. число от някакво поле) $\lambda \in \mathbb{R}$ имаме $\lambda x = (\lambda x_1, \lambda x_2, ..., \lambda x_n)$. Дължина (или също евклидова норма) на вектор е $\lVert x\rVert = \sqrt{\sum_{i=1}^n x_i^2}$, a разстоянието между два вектора е $\rho(x,y) = \lVert x - y \rVert = \sqrt{\sum_{i=1}^n (x_i - y_i)^2}$. Свойства на дължината:
+\begin{enumerate}
+	\item $\lVert x \rVert \geq 0, \lVert x \rVert = 0 \iff x=\Z=$ нулевия вектор. Положителна дефинитност.
+	\item $\norm{\lambda x} = |\lambda|\cdot \norm{x}$
+	\item $\norm{x+y} \leq \norm{x} + \norm{y}$. Неравенство на $\Delta$.
+\end{enumerate}
+
+Пример:
+\begin{itemize}
+ \item $\norm{(x_1, x_2)}_1 = |x_1| + |x_2|$
+ \item $\norm{(x_1, x_2)}_\infty = $ max\{$|x_1|, |x_2|$\}
+ \item $\norm{(x_1, x_2)}_p = \sqrt[p]{|x_1|^p + |x_2|^p}$ и $1<p<\infty$
+\end{itemize}
+По-общо имаме $$\norm{x}_p = \sqrt[p]{\sum_{i=1}^n |x_i|^p}$$
+
+За упражнение можем да проверим, че горните норми удовлетворяват свойствата на дължините.
+
+Сега ще дефинираме отворено кълбо $\mathcal{B}_r(x_0)$ с център $x_0$ и радиус $r$. $$\B_r(x_0) = \{x\in \mathbb{R}^n : \norm{x-x_0}<r\}$$
+
+%TODO add graphics for intervals and p-norms.
+Скаларно произведение:
+$$<x, y> = \sum_{i=1}^n x_i y_i$$
+$$cos(<x,y>) = <\frac{x}{\norm{x}}, \frac{y}{\norm{y}}>$$
+Неравенство на Коши-Буняковски-Шварц:
+$$|<x, y>| \leq \norm{x}\norm{y}$$
+Тук е моментът да си припомним и общата форма на неравенството на триъгълника (н-во на Минковски), която се доказва с помощта на н-вото на Юнг(Young) и Хьолдер(Hölder).
+Неравенство на Хьолдер(Hölder):
+$$\sum_{k=1}^n |x_k\,y_k| \le \biggl( \sum_{k=1}^n |x_k|^p \biggr)^{\frac{1}{p}} \biggl( \sum_{k=1}^n |y_k|^q \biggr)^{\frac{1}{q}}
+\text{ за всички }(x_1,\ldots,x_n),(y_1,\ldots,y_n)\in\mathbb{R}^n$$
+Неравенство на Минковски:
+$$\left( \sum_{k=1}^n |x_k + y_k|^p \right)^{\frac{1}{p}} \le \left( \sum_{k=1}^n |x_k|^p \right)^{\frac{1}{p}} + \left( \sum_{k=1}^n |y_k|^p \right)^{\frac{1}{p}}$$
+
+\section{Топология в $\mathbb{R}^n$}
+\subsection{Отворено множество}
+
+\begin{defn}
+$U\subset\R^n$ се нарича отворено, ако за $\forall x \in U$ съществува $\epsilon>0$, такова че $\B_\epsilon (x) \subset U$.
+\end{defn}
+
+
+$\emptyset$ и $\R^n$ са отворени
+
+Ако $U_1, U_2, ..., U_n$ са отворени $\Rightarrow \bigcap_{i=1}^n U_i$ е отворено.
+
+Ако $U_\alpha, \forall \alpha \in A$ са отворени $\Rightarrow \bigcup _{\alpha \in A} U_\alpha$ е отворено.
+
+\begin{example}
+Отворените кълба са отворени множества.\\
+$\B_r(x_0), r>0$. Взимаме си произволно $x$ от кълбото, т.е. растоянието между $x$ и $x_0$ е по-малко от $r$. Нека $\epsilon := r - \norm{x_0-x}>0$. Тогава $\B_\epsilon(x)\subset\B_r(x_0)$. Нека $y\in\B_\epsilon(x) \Rightarrow \norm{x-y}<\epsilon$.
+\begin{eqnarray*}
+\norm{x_0-y} &\leq& \norm{x-y} + \norm{x-x_0} < \epsilon + \norm{x-x_0}\\
+\norm{x_0-y} &\leq& r - \norm{x_0-x} + \norm{x-x_0}\\
+\norm{x_0-y} &\leq& r
+\end{eqnarray*}
+\end{example}
+
+\begin{example}
+Нека имаме \textbf{непрекъсната} функция $g:\R^n \rightarrow \R$, тогава $U = \{x\in\R^n:g(x)>0\}$ е отворено.
+\begin{proof}
+Взимаме произволна точка $x_0\in U$, следователно $\epsilon = g(x_0)>0$, тогава $\exists \delta \; \forall x\in\B_\delta(x_0): |g(x)-g(x_0)|<\epsilon \quad \Rightarrow g(x)>g(x_0)-\epsilon = 0 \quad \Rightarrow x \in U$.
+\end{proof}
+\end{example}
+
+\subsection{Затворено множество}
+
+\begin{defn}
+$F$ е затворено, ако $\R^n \setminus F$ е отворено.\\
+$\emptyset, \R^n$ са затворени.\\
+Ако $F_1, F_2, ..., F_n$ са затворени $\Rightarrow \bigcup_{i=1}^n F_i$ е затворено.\\
+Ако $F_\alpha, \forall \alpha \in A$ са затворени $\Rightarrow \bigcap _{\alpha \in A} F_\alpha$ е затворено.
+\end{defn}
+
+\begin{defn*}
+Затворено кълбо.
+$$\overline{\B_r(x_0)} = \{x \in \R^n : \norm{x-x_0}\leq r \}$$
+\end{defn*}
+
+\noindent Затворените кълба са затворени множества.\\
+$F$ е затворено $\iff F$ съдържа границите на всички редици, съставяеми от негови елементи. Или на математически език, $\forall \{x_m\}_{m=1}^\infty \in F, $ границата $x_m \rightarrow x_l \in F$.
+
+\end{document}
