@@ -172,4 +172,104 @@ $F$ на $\R^n $ се нарича затворено, ако $\R^n \setminus F$
 Да напомним още едно свойство на затворените множества, доказано в ДИС2: Едно множество $F$ е затворено точно тогава, когато $F$ съдържа границите на всички редици, съставени от негови елементи. Иначе казано, 
 $$F = \left\{ x\in \R^n : \ \exists \{x_m\}_{m=1}^\infty \subset F, \ x_m \rightarrow x \right\} \ .$$
 
+% UNREVIEWED TEXT BEGINS HERE
+
+\begin{defn}
+Контур на множество.
+
+\noindent Нека $A \subset \R^n$. Тогава контур на $A$ наричаме множеството
+$$\partial A = \{ x\in \R^n : x\in U, \; \forall U \; \text{отворено} \land U \cap A \neq \emptyset \land M \setminus A \neq \emptyset \}$$
+%Горе май има грешка... M\A != \emptyset ... mmm... 
+Също можем да напишем
+$$\partial A = \{x \in \R^n \text{, за които същ. } \{x_m\}_{m=1}^\infty \subset A, x_m \rightarrow x \text{, същ. } \{y_m\}_{m=1}^\infty \subset \R^n\setminus A, y_m \rightarrow x\}$$
+\end{defn}
+
+$A \rightarrow \partial A$ е затворено множество
+
+\begin{defn}
+Затворена обвивка на множество.
+$$\overline{A} = A \cup \partial A = \cap F (F \text{затв} \supset A)$$
+Най-малкото затворено съдържащо $A$.
+$$\overline{A} = \{x\in\R^n: \exists \{x_m\}_{m=1}^\infty \subset A,\; x_m \rightarrow x \}$$
+Контурът е затворена обвивка на множеството пресечена със затворената обвивка на допълнението.
+\end{defn}
+
+\begin{defn}
+Вътрешност на $A\subset\R^n$.
+$$\mathring{A} = \bigcup_{\substack{U \text{отв.}\\ U \subset A}} U = \R^n \setminus \overline{(\R^n\setminus A)} = int(A)$$
+Обединението на отворените множества, които се съдържат в $A$.
+\end{defn}
+
+\begin{defn}
+Компактност.
+
+\noindent $A\subset \R^n$ се нарича компакт $\iff A$ е ограничено и затворено.
+
+От всеки ред от негови елементи може да се избере сходяща подредица, чиято граница е също в множеството.
+$$\forall\{x_m\}_{m=1}^\infty \subset A \; \exists x_{m_k} \xrightarrow[k\rightarrow \infty]{} x_0 \in A$$
+Каквото и отворено покритие на $A$ да вземем, можем да изберем негово крайно подпокритие.
+$$\forall \{U_\alpha\}_{\alpha \in I} : U_\alpha \text{ са отворени и } \cup_{\alpha\in I} U_\alpha \supset A, \text{тогава} \; \exists \alpha_1, \alpha_2, ..., \alpha_k \in I : \cup_{i=1}^k U_{\alpha_i} \supset A$$
+\end{defn}
+
+\subsection{Основни теореми}
+
+%Тази теорема е доста оскъдна в записките. Хубаво е да се понапълни.
+\begin{thm}[Теорема на Вайерщрас]
+Непрекъснат образ на компакт е компакт.
+$$\text{непр. } f: (K \subset \R^n) \rightarrow \R^m \Rightarrow f(K) = \{f(x):x\in K\} \text{ е компакт в }\R^m$$
+\end{thm}
+\begin{proof}
+Взимаме $\{y_l\}_{l=1}^\infty \subset f(K)$ и търсим нейна сходяща подредица. $y(l) = f(x_l), \; x_l \in K$. $\{x_l\}_{l=1}^\infty \subset K$ компакт. $x_{l_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K$.
+
+$f$ е непрекъсната $\Rightarrow f(x_{l_k}) = y_{l_k} \xrightarrow[k \rightarrow \infty]{} f(x_0)\in f(K)$
+\end{proof}
+
+\begin{thm}[Теорема на Кантор]
+Нека $f$ е дефинирана в $D \subset \R^n$. Нека $K$ компакт $\subset D$.
+$f$ е непрекъсната в $K$, т.е. непрекъсната във всяка точка от $K$.
+Тогава твърдим, че $f$ е равномерно непрекъсната в $K$. Тоест
+$$\forall \epsilon >0 \exists \delta >0 : \forall x \in K \quad \forall x' \in D \quad \norm{x'-x}<\delta$$
+да е в сила
+$$|f(x)-f(x')|<\epsilon$$
+\end{thm}
+
+\begin{proof}
+Допускаме противното.
+
+$\exists \epsilon_0 >0 \; \forall \delta >0 \; \exists x_\delta \in K$ зависещо от $\delta$, $\exists x'_\delta \in D, \norm{x_\delta - x'_\delta}<\delta : |f(x)-f(x')|\geq \epsilon$
+Даваме стойности на $\delta = 1, \frac{1}{2}, \frac{1}{3}, ...$, за да клони към 0. Така се образуват две редици: $\{x_m\}_{m=1}^\infty \subset K$ и $\{x'_m\}_{m=1}^\infty \subset D$.
+Знаем, че разстоянието $< \delta = \frac{1}{m}$, тоест $\norm{x_m - x'_m}<\frac{1}{m}$ и
+\begin{equation} \label{eq:K1}
+|f(x_m) - f(x'_m)|\geq \epsilon_0 >0
+\end{equation}
+$K$ е компакт $\Rightarrow \exists $ сходяща подредица $x_{m_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K$ от непрекъснатостта на $f$. Следователно $f(x_{m_k} \xrightarrow[k \rightarrow \infty]{} f(x_0)$. И така съществува подредица с примове, такава че $\norm{x'_{m_k}-x_0}\leq \norm{x'_{m_k}-x_{m_k}} + \norm{x_{m_k} - x_0} < \frac{1}{m} + \norm{x_{m_k}-x_0} \xrightarrow[k \rightarrow \infty]{} 0$. Следователно $x'_{m_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K \Rightarrow f(x'_{m_k}) \xrightarrow[k \rightarrow \infty]{} f(x_0)$.
+\begin{equation} \label{eq:K2}
+f(x_{m_k}) - f(x'_{m_k}) \xrightarrow[k \rightarrow \infty]{} 0
+\end{equation}
+Така от \eqref{eq:K1} и \eqref{eq:K2} се получава противоречие. Следователно теоремата е доказана.
+\end{proof}
+
+\begin{defn}
+Релативно отворено множество.
+Нека $A \subset \R^m$. $U\subset A$ наричаме релативно отворено в $A$, ако съществува множество отворено в цялото пространство ($V\subset \R^m$), такова че $U = A\cap V$.
+\end{defn}
+
+\begin{prop}
+Нека $f: (D\subset \R^n) \rightarrow \R^m$. Ако $f$ е непрекъсната в $D \iff \forall U \text{ отворено } \subset \R^m: f^{-1} (U) = \{x\in D: f(x) \in U\}$ е релативно отворено в $D$.
+\end{prop}
+
+\begin{proof}
+Първо ще докажем обратната посока $\Leftarrow$.
+
+Избираме точка от D ($x\in D$) и $\epsilon_0 >0$ Взимаме първообраз $f^-1 (\B_{\epsilon_0}(f(x)) = D \cap V \Rightarrow x \in V$ отворено и $\exists \delta >0 : \B_\delta (x) \subset V$. Сега $x' \in D \cap \B_\delta(x) \Rightarrow x' \in D\cap V \Rightarrow f(x') \in \B_{\epsilon_0}(f(x))$.
+
+Сега обратната посока $\Rightarrow$.
+Взимаме $U \subset \R^n$ и $x\in f^{-1} (U) \Rightarrow f(x) \in U$ отворено. Следователно $\exists \epsilon >0 ; \B_\epsilon(f(x)) \subset U$, $f$ е непрекъсната $\Rightarrow \exists \delta_x >0, f(\B_{\delta_x}(x)\cap D) \subset \B_\epsilon (f(x)) \subset U$. И така нека имаме отвореното множество $V = \bigcup_{x \in f^{-1}(U)} \B_{\delta_x}(x)$. Имаме, че $V\cap D = f^{-1} (U)$, защото:
+\begin{enumerate}
+	\item $\supset$, защото е център.
+	\item $\subset$, защото $y \in V \cap D$, $y \in D \; y\in \B_{\delta_x}(x)$, $\Rightarrow f(y) \in f(\B_{\delta_x}(x)\cap D) \subset \B_\epsilon (f(x)) \subset U$ и следователно $y \in f^{-1} (U)$. 
+\end{enumerate}
+\end{proof}
+За упражнение да се докаже теоремата на Вайерщрас, използвайки горното твърдение.
+
 \end{document}
