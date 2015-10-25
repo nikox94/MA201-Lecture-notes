@@ -138,13 +138,15 @@ $$\overline{B}_r(x) := \left\{ y\in \mathbb{R}^n : \norm{y-x}\leq r\right\}$$
 3. Обединение на произволна фамилия от отворени множества е отворено, т.е. ако $U_\alpha$ са отворени за всяко $\alpha \in I$, то $\bigcup _{\alpha \in I} U_\alpha$ е отворено.
 
 \begin{example}
-Отворените кълба са отворени множества.\\
-Да разгледаме $B_r(x_0)$, $r>0$. Взимаме си произволно $x$ от кълбото, т.е. растоянието между $x$ и $x_0$ е по-малко от $r$. Нека $\epsilon := r - \norm{x_0-x}>0$. Тогава $B_\epsilon(x)\subset\B_r(x_0)$. Наистина, нека $y\in B_\epsilon(x)$, т.е. $\norm{y-x} <\epsilon$. Получаваме
+Отворените кълба са отворени множества.
+\begin{proof}
+Да разгледаме $B_r(x_0)$, $r>0$. Взимаме си произволно $x$ от кълбото, т.е. растоянието между $x$ и $x_0$ е по-малко от $r$. Нека $\epsilon := r - \norm{x_0-x}>0$. Тогава $B_\epsilon(x)\subset B_r(x_0)$. Наистина, нека $y\in B_\epsilon(x)$, т.е. $\norm{y-x} <\epsilon$. Получаваме
 \begin{eqnarray*}
 \norm{x_0-y} &\leq& \norm{x-y} + \norm{x-x_0} < \epsilon + \norm{x-x_0}\\
 \norm{x_0-y} &<& r - \norm{x_0-x} + \norm{x-x_0}\\
 \norm{x_0-y} &<& r
 \end{eqnarray*}
+\end{proof}
 \end{example}
 
 \begin{example}
@@ -166,110 +168,113 @@ $F$ на $\R^n $ се нарича затворено, ако $\R^n \setminus F$
 
 3. Сечение на произволна фамилия от затворени множества е затворено, т.е. ако $F_\alpha$ са затворени за всички $\alpha \in I$, то $\bigcap _{\alpha \in A} F_\alpha$ е затворено.
 
-
-\noindent Пример: Затворените кълба са затворени множества.
-
-Да напомним още едно свойство на затворените множества, доказано в ДИС2: Едно множество $F$ е затворено точно тогава, когато $F$ съдържа границите на всички редици, съставени от негови елементи. Иначе казано, 
-$$F = \left\{ x\in \R^n : \ \exists \{x_m\}_{m=1}^\infty \subset F, \ x_m \rightarrow x \right\} \ .$$
-
-% UNREVIEWED TEXT BEGINS HERE
+\begin{example} 
+Затворените кълба са затворени множества. Доказателството оставяме за упражнение.
+\end{example}
 
 \begin{defn}
-Контур на множество.
-
-\noindent Нека $A \subset \R^n$. Тогава контур на $A$ наричаме множеството
-$$\partial A = \{ x\in \R^n : x\in U, \; \forall U \; \text{отворено} \land U \cap A \neq \emptyset \land M \setminus A \neq \emptyset \}$$
-%Горе май има грешка... M\A != \emptyset ... mmm... 
-Също можем да напишем
-$$\partial A = \{x \in \R^n \text{, за които същ. } \{x_m\}_{m=1}^\infty \subset A, x_m \rightarrow x \text{, същ. } \{y_m\}_{m=1}^\infty \subset \R^n\setminus A, y_m \rightarrow x\}$$
+Контур на множеството $A \subset \R^n$ наричаме множеството
+$$\partial A := \{ x\in \R^n : \forall U \; \text{отворено}, \; x\in U \mbox{ е в сила } U \cap A \neq \emptyset \mbox{ и } U\setminus A \neq \emptyset \}$$
 \end{defn}
 
-$A \rightarrow \partial A$ е затворено множество
-
 \begin{defn}
-Затворена обвивка на множество.
-$$\overline{A} = A \cup \partial A = \cap F (F \text{затв} \supset A)$$
-Най-малкото затворено съдържащо $A$.
+Затворена обвивка на множеството $A \subset \R^n$ наричаме най-малкото затворено множество, съдържащо $A$:
+$$\overline{A} := \cap \left\{ F \subset \R^n : \ F \supset A  \mbox{ и } F  \mbox{ е затворено }\right\}$$
+\end{defn}
+
+В курса по ДИС2 е доказано, че
 $$\overline{A} = \{x\in\R^n: \exists \{x_m\}_{m=1}^\infty \subset A,\; x_m \rightarrow x \}$$
-Контурът е затворена обвивка на множеството пресечена със затворената обвивка на допълнението.
-\end{defn}
+Лесно се проверява, че едно множество е затворено точно тогава, когато съвпада със затворената си обвивка. Връзките между контур на множество и затворена обвивка на множество са
+$$\overline{A}= A \cup \partial A \ , \ \partial A =\overline{A} \cap \left(\overline{\R^n\setminus A}\right) \ .$$
+Следователно контурът на произволно множество е винаги затворено множество. Също лесно се проверява, че 
+$$\partial A = \{x \in \R^n : \ \exists \{x_m\}_{m=1}^\infty \subset A, \ x_m \rightarrow x  \mbox{ и } \exists \{y_m\}_{m=1}^\infty \subset \R^n\setminus A, \  y_m \rightarrow x\}$$
 
 \begin{defn}
-Вътрешност на $A\subset\R^n$.
-$$\mathring{A} = \bigcup_{\substack{U \text{отв.}\\ U \subset A}} U = \R^n \setminus \overline{(\R^n\setminus A)} = int(A)$$
-Обединението на отворените множества, които се съдържат в $A$.
+Вътрешност на $A\subset\R^n$ наричаме най-голямото отворено множество, съдържащо се в $A$:
+$$\mathring{A} = \cup \left\{ U \subset \R^n : \ U \subset A  \mbox{ и } U  \mbox{ е отворено }\right\}$$
 \end{defn}
 
+Друго означение за вътрешност на $A$ е $int A$. Понятието за вътрешност е дуално на понятието за затворена обвивка, т.е.
+$$int{A} = \R^n \setminus \left(\overline{\R^n\setminus A}\right) \ , \ \overline{A}=
+\R^n \setminus \left(int{(\R^n\setminus A)}\right) \ .$$
+
+Едно от най-важните и често използвани понятия в топологията е понятието за компактност. 
 \begin{defn}
-Компактност.
-
-\noindent $A\subset \R^n$ се нарича компакт $\iff A$ е ограничено и затворено.
-
-От всеки ред от негови елементи може да се избере сходяща подредица, чиято граница е също в множеството.
-$$\forall\{x_m\}_{m=1}^\infty \subset A \; \exists x_{m_k} \xrightarrow[k\rightarrow \infty]{} x_0 \in A$$
-Каквото и отворено покритие на $A$ да вземем, можем да изберем негово крайно подпокритие.
-$$\forall \{U_\alpha\}_{\alpha \in I} : U_\alpha \text{ са отворени и } \cup_{\alpha\in I} U_\alpha \supset A, \text{тогава} \; \exists \alpha_1, \alpha_2, ..., \alpha_k \in I : \cup_{i=1}^k U_{\alpha_i} \supset A$$
+Едно множество $A\subset \R^n$ се нарича компакт, ако от всяко негово отворено покритие можем да изберем крайно подпокритие, т.е. ако $\{U_\alpha\}_{\alpha \in I}$ е фамилия от отворени подмножества на $\R^n$, за която е в сила $\cup_{\alpha\in I} U_\alpha \supset A$, то можем да изберем краен брой индекси $\alpha_1, \alpha_2, \dots , \alpha_k \in I$ такива, че $\cup_{i=1}^k U_{\alpha_i} \supset A$.
 \end{defn}
+
+В курса по ДИС2 са доказани две важни и нетривиални характеризации на компактните подмножества на $\R^n$:
+ 
+1. Едно подмножество $A$ на $\R^n$ е компакт точно тогава, когато $A$ е ограничено и затворено.
+
+2. Едно подмножество $A$ на $\R^n$ е компакт точно тогава, когато от всяка редица от негови елементи може да се избере сходяща подредица, чиято граница е също в множеството.
+
+\bigskip
+
+Сега въвеждаме първото разширение, т.е. понятие, за което не сте учили в курса по ДИС2: множество, релативно отворено в $A$. Ще го използваме по-нататък, за да говорим за множества, релативно отворени в някаква гладка двумерна повърхнина в тримерното евклидово пространство. Интуицията е, че забравяме за всичко извън множеството $A$.
+
+\begin{defn} Нека $A \subset \R^n$. Едно подмножество $U$ на $A$ наричаме релативно отворено в $A$, ако съществува отворено множество $V\subset \R^n$ такова, че $U = A\cap V$.
+\end{defn}
+\begin{prop}
+Множеството $U\subset A$ е релативно отворено в $A$ точно тогава, когато за всяка негова точка $x\in U$ съществува $\epsilon >0$ такова, че $B_\epsilon (x)\cap A \subset U$.
+\end{prop}
+\begin{proof}
+Нека първо $U\subset A$ е релативно отворено в $A$ и $x\in U$ е произволна. Тогава съществува отворено множество $V\subset \R^n$ с $U = A\cap V$. Тъй като $x\in U\subset V$, съществува $\epsilon >0$ с $B_\epsilon (x) \subset V$ и оттук $B_\epsilon (x)\cap A \subset V\cap A=U$. В обратната посока, нека за всяка точка $x\in U$ съществува $\epsilon_x >0$ такова, че $B_{\epsilon_x} (x)\cap A \subset U$. Полагаме
+$V:= \cup_{ x\in U} B_{\epsilon_x} (x)$. Очевидно $V$ е отворено множество като обединение на отворени кълбета. Освен това
+$$V\cap A=\left(\cup_{ x\in U} B_{\epsilon_x} (x)\right)\cap A=\cup_{ x\in U}\left( B_{\epsilon_x} (x)\cap A\right)\subset U \ .$$
+От друга страна, всяка точка $x\in U$ принадлежи на $B_{\epsilon_x} (x) \subset V$, следователно $U\subset V$ и от $U\subset A$ следва $U\subset V\cap A$. С това $U= V\cap A$ и доказателството е завършено.
+\end{proof}
+
+Следното приложение на понятието за релативна отвореност е важно и изключително често използвано:
+\begin{prop}
+Нека $f: D \longrightarrow \R^m$ е изображение с дефиниционна област $D\subset \R^n$ и стойности в $\R^m$. Твърдим, че $f$ е непрекъсната в $D$ точно тогава когато първообраз на всяко отворено в $\R^m$ множество е релативно отворено в $D$. Да напомним, че първообраз на $U\subset \R^m$ е множеството 
+$f^{-1} (U) := \{x\in D: f(x) \in U\}$.
+\end{prop}
+\begin{proof}
+Първо ще докажем, че ако първообраз на всяко отворено в $\R^m$ множество е релативно отворено в $D$, то $f$ е непрекъсната. 
+Избираме произволна точка $x$ от $D$ и произволно $\epsilon >0$. Тъй като кълбото $B_{\epsilon}(f(x))$ е отворено в $\R^m$, първообразът $f^{-1} (B_{\epsilon}(f(x))$ ще е релативно отворен в $D$. Тогава $f^{-1} (B_{\epsilon}(f(x))= D \cap V$ за някое множество $V$, отворено в $\R^n$. Тъй като $x\in f^{-1} (B_{\epsilon}(f(x))\subset  V$, съществува $\delta >0$ с $B_\delta (x) \subset V$. Нека $x'\in D$ е произволна точка с $\| x' -x\| <\delta$. Значи $x' \in D \cap B_\delta(x) \subset D\cap V=f^{-1} (B_{\epsilon}(f(x))$ и следователно $f(x')\in B_{\epsilon}(f(x))$, т.е. $\| f(x')-f(x)\| <\epsilon$.
+
+За да докажем обратната посока, избираме произволно отворено $U\subset \R^m$.
+Нека $x\in f^{-1} (U)$. Тогава $f(x)$ принадлежи на отвореното множество $U$ и следователно съществува $\epsilon >0$ такова, че $B_\epsilon(f(x)) \subset U$. Тъй като $f$ е непрекъсната в $x$, съществува $\delta >0$ такова, че $\| f(x')-f(x)\| <\epsilon$ за всяко $x'\in D$, за което $\| x'-x\| <\delta$. Записано по друг начин това означава, че $f(B_{\delta}(x)\cap D) \subset B_\epsilon (f(x)) \subset U$, следователно $B_{\delta}(x)\cap D \subset f^{-1} (U)$. Така доказахме, че множеството $f^{-1} (U)$ е релативно отворено в $D$, защото изпълнява условието от предишното твърдение.
+\end{proof}
 
 \subsection{Основни теореми}
 
-%Тази теорема е доста оскъдна в записките. Хубаво е да се понапълни.
 \begin{thm}[Теорема на Вайерщрас]
-Непрекъснат образ на компакт е компакт.
-$$\text{непр. } f: (K \subset \R^n) \rightarrow \R^m \Rightarrow f(K) = \{f(x):x\in K\} \text{ е компакт в }\R^m$$
+Непрекъснат образ на компакт е компакт. Формално записано, ако
+$f: K  \longrightarrow \R^m$ е непрекъснато изображение с дефиниционна област компактното подмножество $K$ на $\R^n$, то множеството  $f(K) := \{f(x):x\in K\}$ от стойностите на $f$ е компактно подмножество на $\R^m$.
 \end{thm}
 \begin{proof}
-Взимаме $\{y_l\}_{l=1}^\infty \subset f(K)$ и търсим нейна сходяща подредица. $y(l) = f(x_l), \; x_l \in K$. $\{x_l\}_{l=1}^\infty \subset K$ компакт. $x_{l_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K$.
-
-$f$ е непрекъсната $\Rightarrow f(x_{l_k}) = y_{l_k} \xrightarrow[k \rightarrow \infty]{} f(x_0)\in f(K)$
+Нека $\{y_l\}_{l=1}^\infty \subset f(K)$ е редица от елементи на $f(K)$. Тогава за всеки елемент $y_l$ на тази редица съществува елемент  $x_l$ на $K$ такъв, че $y(l) = f(x_l)$. Сега редицата $\{x_l\}_{l=1}^\infty$ се съдържа в компактното множество $K$. Следователно съществува нейна сходяща подредица $\{ x_{l_k}\}_{k=1}^\infty$, чиято граница $x_0$ е елемент на $K$. Тъй като $f$ е непрекъсната, от дефиницията на Хайне за непрекъснатост получаваме, че $f(x_{l_k}) = y_{l_k} \xrightarrow[k \rightarrow \infty]{} f(x_0)$. Тъй като очевидно $f(x_0)\in f(K)$, остава да се позовем на характеризацията (2) на компактните множества.
 \end{proof}
+
+Хубаво упражнение е да се докаже теоремата на Вайерщрас, като се използва дефиницията на компакт и характеризацията на непрекъснатите изображения, която доказахме.
+
+Друго добро упражнение е да се докаже теоремата на Вайерщрас от ДИС 1 (една непрекъсната функция върху краен затворен интервал има минимум и максимум) като следствие от тази форма на теоремата.
+
+\bigskip
 
 \begin{thm}[Теорема на Кантор]
-Нека $f$ е дефинирана в $D \subset \R^n$. Нека $K$ компакт $\subset D$.
-$f$ е непрекъсната в $K$, т.е. непрекъсната във всяка точка от $K$.
-Тогава твърдим, че $f$ е равномерно непрекъсната в $K$. Тоест
-$$\forall \epsilon >0 \exists \delta >0 : \forall x \in K \quad \forall x' \in D \quad \norm{x'-x}<\delta$$
-да е в сила
-$$|f(x)-f(x')|<\epsilon$$
+Нека $f:D\longrightarrow \R^m$ е дефинирана в $D \subset \R^n$. Нека $K$ е компактно подмножество на $D$.
+Ако $f$ е непрекъсната в $K$, т.е. непрекъсната е във всяка точка от $K$, то твърдим, че за всяко
+$\epsilon >0$ съществува $\delta >0$ такова, че за всяко $x \in K$ и за всички $x' \in D$, за които е изпълнено $\norm{x'-x}<\delta$, е в сила
+$\|f(x)-f(x')\|<\epsilon$. Забележете, че заключението е малко по-силно от равномерна непрекъснатост на $f$ върху $K$.
 \end{thm}
-
 \begin{proof}
-Допускаме противното.
-
-$\exists \epsilon_0 >0 \; \forall \delta >0 \; \exists x_\delta \in K$ зависещо от $\delta$, $\exists x'_\delta \in D, \norm{x_\delta - x'_\delta}<\delta : |f(x)-f(x')|\geq \epsilon$
-Даваме стойности на $\delta = 1, \frac{1}{2}, \frac{1}{3}, ...$, за да клони към 0. Така се образуват две редици: $\{x_m\}_{m=1}^\infty \subset K$ и $\{x'_m\}_{m=1}^\infty \subset D$.
-Знаем, че разстоянието $< \delta = \frac{1}{m}$, тоест $\norm{x_m - x'_m}<\frac{1}{m}$ и
-\begin{equation} \label{eq:K1}
-|f(x_m) - f(x'_m)|\geq \epsilon_0 >0
-\end{equation}
-$K$ е компакт $\Rightarrow \exists $ сходяща подредица $x_{m_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K$ от непрекъснатостта на $f$. Следователно $f(x_{m_k} \xrightarrow[k \rightarrow \infty]{} f(x_0)$. И така съществува подредица с примове, такава че $\norm{x'_{m_k}-x_0}\leq \norm{x'_{m_k}-x_{m_k}} + \norm{x_{m_k} - x_0} < \frac{1}{m} + \norm{x_{m_k}-x_0} \xrightarrow[k \rightarrow \infty]{} 0$. Следователно $x'_{m_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K \Rightarrow f(x'_{m_k}) \xrightarrow[k \rightarrow \infty]{} f(x_0)$.
-\begin{equation} \label{eq:K2}
-f(x_{m_k}) - f(x'_{m_k}) \xrightarrow[k \rightarrow \infty]{} 0
-\end{equation}
-Така от \eqref{eq:K1} и \eqref{eq:K2} се получава противоречие. Следователно теоремата е доказана.
+Отново ще използваме характеризацията (2) на компактността чрез редици. Допускаме противното, т.е. съществува такова $\epsilon_0 >0$, че за всички $\delta >0$ съществуват точки $x_\delta \in K$ и $x'_\delta \in D$ такива, че 
+$$\norm{x_\delta - x'_\delta}<\delta \mbox{ и } \|f(x_\delta)-f(x'_\delta)\|\geq \epsilon \ .$$
+Даваме на $\delta$ стойности  $1, \frac{1}{2}, \frac{1}{3}, \dots$ и преименуваме $x_{1/m}$ и $x_{1/m}'$ съответно на $x_m$ и $x'_m$. Така се образуват две редици $\{x_m\}_{m=1}^\infty \subset K$ и $\{x'_m\}_{m=1}^\infty \subset D$.
+Знаем, че 
+$$\norm{x_m - x'_m}<\frac{1}{m} \mbox{ и } \|f(x_m) - f(x'_m)\|\geq \epsilon_0 >0$$
+за всяко естествено $m$. Тъй като $K$ е компакт, съществува сходяща подредица $x_{m_k} \xrightarrow[k \rightarrow \infty]{} x_0 \in K$ на $\{x_m\}_{m=1}^\infty \subset K$. От неравенствата
+$$\norm{x'_{m_k}-x_0}\leq \norm{x'_{m_k}-x_{m_k}} + \norm{x_{m_k} - x_0} < \frac{1}{m_k} + \norm{x_{m_k}-x_0}$$
+получаваме, че редицата $\{x'_{m_k}\}_{k=1}^\infty$ също клони към точката $x_0\in K$. Сега използваме непрекъснатостта
+на $f$ в точката $x_0\in K$ и получаваме, че
+$$f(x_{m_k}) \xrightarrow[k \rightarrow \infty]{} f(x_0)\mbox{ и } f(x_{m_k}') \xrightarrow[k \rightarrow \infty]{} f(x_0) .$$
+Като извадим тези две редици, получаваме
+$f(x_{m_k}) - f(x'_{m_k}) \xrightarrow[k \rightarrow \infty]{} 0$, което противоречи на $\|f(x_m) - f(x'_m)\|\geq \epsilon_0 >0$ за всяко естествено $m$. Теоремата е доказана.
 \end{proof}
 
-\begin{defn}
-Релативно отворено множество.
-Нека $A \subset \R^m$. $U\subset A$ наричаме релативно отворено в $A$, ако съществува множество отворено в цялото пространство ($V\subset \R^m$), такова че $U = A\cap V$.
-\end{defn}
 
-\begin{prop}
-Нека $f: (D\subset \R^n) \rightarrow \R^m$. Ако $f$ е непрекъсната в $D \iff \forall U \text{ отворено } \subset \R^m: f^{-1} (U) = \{x\in D: f(x) \in U\}$ е релативно отворено в $D$.
-\end{prop}
 
-\begin{proof}
-Първо ще докажем обратната посока $\Leftarrow$.
-
-Избираме точка от D ($x\in D$) и $\epsilon_0 >0$ Взимаме първообраз $f^-1 (\B_{\epsilon_0}(f(x)) = D \cap V \Rightarrow x \in V$ отворено и $\exists \delta >0 : \B_\delta (x) \subset V$. Сега $x' \in D \cap \B_\delta(x) \Rightarrow x' \in D\cap V \Rightarrow f(x') \in \B_{\epsilon_0}(f(x))$.
-
-Сега обратната посока $\Rightarrow$.
-Взимаме $U \subset \R^n$ и $x\in f^{-1} (U) \Rightarrow f(x) \in U$ отворено. Следователно $\exists \epsilon >0 ; \B_\epsilon(f(x)) \subset U$, $f$ е непрекъсната $\Rightarrow \exists \delta_x >0, f(\B_{\delta_x}(x)\cap D) \subset \B_\epsilon (f(x)) \subset U$. И така нека имаме отвореното множество $V = \bigcup_{x \in f^{-1}(U)} \B_{\delta_x}(x)$. Имаме, че $V\cap D = f^{-1} (U)$, защото:
-\begin{enumerate}
-	\item $\supset$, защото е център.
-	\item $\subset$, защото $y \in V \cap D$, $y \in D \; y\in \B_{\delta_x}(x)$, $\Rightarrow f(y) \in f(\B_{\delta_x}(x)\cap D) \subset \B_\epsilon (f(x)) \subset U$ и следователно $y \in f^{-1} (U)$. 
-\end{enumerate}
-\end{proof}
-За упражнение да се докаже теоремата на Вайерщрас, използвайки горното твърдение.
-
-\end{document}
+\end{document} 
