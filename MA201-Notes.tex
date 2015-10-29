@@ -6,12 +6,15 @@
 \usepackage[unicode=true]{hyperref}
 \usepackage{breakurl}
 \usepackage{indentfirst}
+\usepackage{pgf, tikz}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{esvect}
+\usepackage{breqn}
 
+\usetikzlibrary{arrows}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
@@ -73,6 +76,9 @@
 
 
 \begin{document}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
 
 \maketitle
 
@@ -275,6 +281,79 @@ $$f(x_{m_k}) \xrightarrow[k \rightarrow \infty]{} f(x_0)\mbox{ и } f(x_{m_k}') 
 $f(x_{m_k}) - f(x'_{m_k}) \xrightarrow[k \rightarrow \infty]{} 0$, което противоречи на $\|f(x_m) - f(x'_m)\|\geq \epsilon_0 >0$ за всяко естествено $m$. Теоремата е доказана.
 \end{proof}
 
+\section{Лекция 2. Паралелотопи в $\R^n$}
+
+\begin{defn}
+Паралелотоп (също interval, box, брус) е обобщението на паралелепипеда в $\R^n$.
+$$\Delta = \{x\in\R^n : a_i \leq x_i \leq b_i,\; i = 1, 2, ... n \}$$
+Така изглежда за различните измерения (стойности на $n$).
+
+
+\begin{tabular}{ c l }
+  $n$ & \multicolumn{1}{c}{$\Delta$}\\
+  \hline
+  1 & $[a_1, b_1]$ \\
+  2 & $[a_1, b_1]\times[a_2, b_2]$ \\
+  3 & $[a_1, b_1]\times[a_2, b_2]\times[a_3, b_3]$\\
+  ..& ...
+\end{tabular}
+\end{defn}
+
+За да намерим обема на един паралелотоп използваме неговата \emph{мярка}.
+\begin{defn}
+Мярка.
+
+
+В едно измерение мярката на един интервал е просто дължината му. Пишем $\mu_n([a_1, b_1]) = b_1-a_1$. Мярка всъщност можем да имаме и за произволни \emph{измерими} множества. Но за това по-късно. За момента мярка дефинираме само за множества, които са интервали, например $[a_1, b_1]$. За един паралелотоп имаме $\mu_n(\Delta) = \prod_{i=1}^n (b_i - a_i)$, което е всъщност обемът на този паралелотоп.
+\end{defn}
+
+\begin{defn}
+Подразделение.
+
+Подразделение на един паралелотоп $\Delta$ е "разбиване" на обекта на произволен брой и вид паралелотопи. Нататък често ще ползваме произволна разбивка, за да доказваме твърдения и теореми.
+Пишем подразделение на $\Delta$ така:
+$$\Pi = \{\Delta_k \}_{k=1}^{k_0}$$
+и също $\cup_{k=1}^{k_0} \Delta_k = \Delta$ и $\mathring \Delta_{k_i} \cap \mathring \Delta_{k_j} = \emptyset, \; \forall i \neq j$.
+Една произволна разбивка на един паралелотоп във второ измерение( т.е. правоъгълник) е например:
+\end{defn}
+
+\begin{center}
+\begin{tikzpicture}
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (6.22,13.7) -- (6.2,11.18) -- (11.12,11.06) -- (11.14,13.66) -- cycle;
+\draw [color=zzttqq] (6.22,13.7)-- (6.2,11.18);
+\draw [color=zzttqq] (6.2,11.18)-- (11.12,11.06);
+\draw [color=zzttqq] (11.12,11.06)-- (11.14,13.66);
+\draw [color=zzttqq] (11.14,13.66)-- (6.22,13.7);
+\draw (6.21,12.46)-- (11.13,12.38);
+\draw (9.14,11.11)-- (9.16,12.41);
+\draw (7.68,13.69)-- (7.66,12.44);
+\draw (10.02,12.4)-- (10,13.16);
+\draw (10,13.16)-- (11.14,13.12);
+\end{tikzpicture}
+\end{center}
+
+Друго често използвано е вътрешност на паралелотоп, която можем да напишем така $\mathring \Delta = \{x\in\R^n : a_i < x_i < b_i, \; i=1,2,..n\}$
+
+\begin{prop}
+$\Pi$ е подразделяне на $\Delta$ следователно $\mu_n(\Delta) = \sum_{k=1}^{k_0} \mu_n(\Delta_k)$
+\end{prop}
+
+\begin{proof}
+Първо разглеждаме случаят на правилно подразделение.
+%% ДА СЕ ДЕФИНИРА ПРАВИЛНО ПОДРАЗЕЛЕНИЕ ПЪРВО.
+%% ДОСТА ПОСТНО Е ПРЕДСТАВЕНО ДОКАЗАТЕЛСТВОТО ТУК. ПИША КАКВОТО ИМА.
+$$a_1 = x_0 < x_1 < ... < x_{m_0} = b_1$$
+$$a_1 = y_0 < y_1 < ... < y_{l_0} = b_0$$
+%% В горните 2 реда ми се струва че има проблем с индексите и дали е a и b на правилните места ?
+$$\Delta_{m_l} = [x_{m-1}, x_m]\times [y_{l-1}, y_l]$$
+\begin{dmath*}
+\sum_{l=1}^{l_0} \sum_{m=1}^{m_0} \mu_2 (\Delta_{m_l}) = \sum_l \sum_m (x_m - x_{m-1})(y_l - y_{l-1}) = \sum_l (y_l - y_{l-1})\sum_m (x_m - x_{m-1}) = (b_1 - a_1) \sum_{l=1}^{l_0}(y_l - y_{l-1}) = (b_1 - a_1) (b_2 - a_2) = \mu_2(\Delta)
+\end{dmath*}
+
+Втора стъпка - разглеждаме неправилно подразделение. Продължаваме разделенията до правилни, и така свеждаме до горния случай. Обратно можем да вземем едно (дребно) правилно подразделение и чрез "сливане" \;можем да получим неправилно.
+\end{proof}
+
+%Така ...
 
 
 \end{document} 
