@@ -350,7 +350,78 @@ $\Delta_{m l} = [x_{m-1}, x_m]\times [y_{l-1}, y_l]$. Пресмятаме
 $$\mu_n(\Delta) = \sum_{l=1}^{l_0} \mu_n(\Delta_l^*)= \sum_{k=1}^{k_0} \left(\sum_{\Delta_l^*\subset \Delta_k} \mu_n(\Delta_l^*)\right)=\sum_{k=1}^{k_0} \mu_n(\Delta_k) \ .$$
 \end{proof}
 
-%Така ...
+%НАЧАЛО НА НЕПРЕГЛЕДАН УЧАСТЪК
 
+\begin{defn}
+Нека имаме ограничена фукнция $f:\Delta \rightarrow R$ и подразделение $\Pi = \{\Delta_k \}_{k=1}^{k_0}$ на $\Delta$.
+Тогава
+
+$s_f(\Pi) = \sum_{k=1}^{k_0} m_k \mu(\Delta_k)$ e малка сума на Дарбу за фукнцията $f$ върху подразделението $\Pi$, а $m_k = inf\{f(x) : x\in\Delta_k\}$.
+
+$S_f(\Pi) = \sum_{k=1}^{k_0} M_k \mu(\Delta_k)$ e голяма сума на Дарбу за фукнцията $f$ върху подразделението $\Pi$, а $M_k = sup\{f(x) : x\in\Delta_k\}$.
+
+Също $\Pi^* \geq \Pi$ означава, че $\Pi^*$ е по-фино от $\Pi$.
+\end{defn}
+
+\begin{lem}
+Ако $\Pi^* \geq \Pi$, то $s_f(\Pi^*)\geq s_f(\Pi)$, а $S_f(\Pi^*)\leq S_f(\Pi)$
+\end{lem}
+
+\begin{proof}
+Без ограничение на общността (б.о.о.), нека $\Pi = \{\Delta_k\}_{k=1}^{k_0}$ и $\Pi^* = \{\Delta_1^', \Delta_1^{''}, \Delta_2, ...\} $
+Тогава
+\begin{dmath*}
+s_f(\Pi^*)-s_f(\Pi) = m_1^' \mu(\Delta_1^') + m_1^{''} \mu(\Delta_1^{''}) - m_1 \mu(\Delta_1) \geq m_1 \mu(\Delta_1^') + m_1 \mu(\Delta_1^{''}) - m_1 \mu(\Delta_1) = m_1(\mu(\Delta_1^') + \mu(\Delta_1^{''}) - \mu(\Delta_1)) = 0
+\end{dmath*}
+Това е така, защото $m_1^' \geq m_1$, тъй като $\Delta_1^' \subset \Delta_1$.
+
+Аналогично аргументираме за $S_f(\Pi^*)\leq S_f(\Pi)$.
+\end{proof}
+
+\begin{lem}
+Всички малки суми на Дарбу са по-малки или равни на големите суми на Дарбу.
+$$s_f(\Pi_1)\leq S_f(\Pi_2) \quad \quad \forall \Pi_1, \Pi_2 \text{ подразбивки на } \Delta$$
+\end{lem}
+
+\begin{proof}
+Нека $\Pi^* \geq \Pi_1, \; \Pi^* \geq \Pi_2$, следователно $s_f(\Pi_1) \leq s_f(\Pi^*)\leq S_f(\Pi^*) \leq S_f(\Pi_2)$
+\end{proof}
+
+\begin{defn}Интегруема по Риман.
+
+$f$ се нарича интегруема по Риман, когато съществува единствено число $I$, което разделя малките от големите суми на Дарбу. $I = \int_\Delta f = \int_\Delta f(x) dx$.
+
+$n=1 \quad \int_{[a,b]} f(x) dx$
+
+$n=2 \quad \iint_{\Delta} f(x_1, x_2) dx_1 dx_2$
+
+$n=3 \quad \iiint_{\Delta} f(x_1, x_2, x_3) dx_1 dx_2 dx_3$
+\end{defn}
+
+\begin{defn} Първи критерий за интегруемост.
+
+$\forall \varepsilon >0 \quad \exists \; \Pi_1, \Pi_2 : S_f(\Pi_1)-s_f(\Pi_2)<\varepsilon$.
+\end{defn}
+
+\begin{defn} Втори критерий за интегруемост.
+
+$\forall \varepsilon >0 \quad \forall \eta>0 \quad \exists \; \Pi : \sum_{M_k-m_k\geq \eta} \mu(\Delta_k)<\varepsilon$.
+\end{defn}
+
+\begin{xca}
+Да се докаже, че първа форма води до дефиницията за интегруемост.
+\end{xca}
+
+\begin{defn}Сума на Риман.
+
+Сумата на Риман се различава от сумите на Дарбу по това, че не взимаме най-малката или най-голяма стойност на определен подинтервал, а взимаме произволна пробна точка (sample point) от него.
+
+И така ако имаме $\xi = \{\xi_1, \xi_2, ..., \xi_{k_0}\} \qquad \xi_i \in \Delta_i \quad i=1,\dots k_0$ пишем за сумата на Риман 
+$$\sigma_f(\Pi, \xi) = \sum_{k=1}^{k_0}f(\xi_k)\mu(\Delta_k)$$
+\end{defn}
+
+\begin{prop}Сумите на Риман са между малката и голямата сума на Дарбу.
+$s_f(\Pi) \leq \sigma_f(\Pi, \xi) \leq S_f(\Pi)$.
+\end{prop}
 
 \end{document} 
