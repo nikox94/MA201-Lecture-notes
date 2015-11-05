@@ -437,4 +437,74 @@ $$\sigma_f(\Pi, \xi) = \sum_{k=1}^{k_0}f(\xi_k)\mu(\Delta_k)$$
 $s_f(\Pi) \leq \sigma_f(\Pi, \xi) \leq S_f(\Pi)$.
 \end{prop}
 
+\begin{proof}
+Очевидно 
+
+$sup\{\sigma_f(\Pi, \xi):\xi_k\in\Delta_k\} = S_f(\Pi)$
+
+$inf\{\sigma_f(\Pi, \xi):\xi_k\in\Delta_k\} = s_f(\Pi)$
+\end{proof}
+
+\begin{defn} Диаметър на множество.
+
+Ако имаме множеството $A\subset\R^n$, то диаметър на $A$ наричаме разстоянието между най-"отдалечените" точки в $A$. Написано формално, имаме $$diam(A) = sup{\norm{x-y}:x,y \in A}$$
+\end{defn}
+
+\begin{defn} Диаметър на подразбиване.
+
+Диаметърът на едно подразбиване $\Pi$ на паралелотопа $\Delta$ е най-големият от диаметрите на всички паралелотопи от разбиването.
+$$d(\Pi) = max\{diam(\Delta_k) : k=1,2,..k_o\}$$
+\end{defn}
+
+\begin{thm}
+Нека имаме фукнцията $f:\Delta\rightarrow\R, \quad \Delta \subset \R^n$, която също е интегруема по Риман и $I = \int_\Delta f \iff lim_{d(\Pi)\rightarrow 0} \sigma_f(\Pi, \xi)=I$
+\end{thm}
+
+\begin{proof}
+$\Leftarrow$) Нека $\varepsilon=1>0 \quad \exists \delta>0 \quad \forall \Pi; d(\Pi)<\delta \quad \forall \xi : \sigma_f(\Pi, \xi)<I+1$ и $I-1 < \sigma_f(\Pi, \xi)<I+1$. Да се докаже, че функцията е ограничена върху всеки елемент.
+
+Фиксираме си: $k,\Pi, \xi_s, s\neq k$. Тогава получаваме, че $(I-1)-\sum_{s\neq k} f(\xi_s) \mu(\Delta_s) < f(\sigma_k)\mu(\Delta_k) < (I+1) - \sum_{s\neq k} f(\xi_s)\mu(\Delta_s)$
+Така получаваме, че $f(\xi_k)\mu(\Delta_k)$ е ограничено отгоре и отдолу.
+
+$|f(\xi_k)\mu(\Delta_k)|\leq A_k \quad \forall \xi_k \in \Delta_k$
+
+$\mu(\Delta_k)>0$
+
+$|f(\xi_k)|\leq \frac{A_k}{\mu(\Delta_k)} \quad \forall \xi_k \in \Delta_k$
+от което следва, че функцията е ограничена върху всеки елемент, но елементите $\Delta_k$ са краен брой, което означава, че фукнцията е ограничена в цялото $\Delta$ . Почти сме готови. Получихме, че $\forall \varepsilon >0 \; \exists \delta >0 \exists \Pi$ с $d(\Pi)<\delta$ и $\forall \xi: I-\varepsilon < \sigma_f(\Pi, \xi)<I+\varepsilon$ . Ако вземем супремум и инфимум получваме, че разликата между голямата и малката сума на Дарбу е $2\varepsilon$ от което следва, че функцията е интегруема по Риман.
+
+$\Rightarrow)$ Имаме, че $f$ е интегруема по Риман, от което следва, че $I-\varepsilon \leq s_f(\Pi) \leq S_f(\Pi) \leq I+\varepsilon$. Оттук твърдението ще следва, защото при произволен избор на представителните точки $\xi$ имаме
+$$s_f(\Pi) \leq \sigma_f(\Pi, \xi) \leq S_f(\Pi)$$
+и следователно от горните неравенства получаваме $|\sigma_f(\Pi, \xi) - I|<\varepsilon$ .
+
+И така $\varepsilon > 0$. От дефиницията за интеграл на Риман следва, че съществува $\Pi_1$ подразделяне на $\Delta$, такова че
+$$S_f(\Pi_1) < I+\frac{\varepsilon}{2}$$
+От $f$ интегруема, следва, че е и ограничена. Нека $M = sup\{|f(x)|: x\in\Delta\}$. Нека $\Pi_1 = \{\Box_j \}_{j=1}^{j_0}$ и нека $P_{\Pi_1}$ е общата площ на границите на паралелотопчетата от $\Pi_1$. Нека $\delta = \frac{\varepsilon}{8MP_{\Pi_1}}>0$ . Искаме да оценим $S_f(\Pi)$, където $\Pi$ е произволно подразбиване на $\Delta$ с диаметър, по-малък от $\delta$.
+$$d(\Pi)<\delta, \; \Pi = \{\Delta_i \}_{i=1}^{i_0}$$
+Нека сега $\Pi_2$ да е подразбиване от сеченията на елементите на $\Pi$ и $\Pi_1$ . $\Pi_2 = \{\Box_j \cap \Delta_i \}_{i=1 \; j=1}^{i_0 \quad j_0}$ и изхвърляме празните множества. Така $d(\Pi_2) \leq d(\Pi) \leq \delta$ . $\Pi_2 \succ \Pi_1 \Rightarrow S_f(\Pi_2) \leq S_f(\Pi) < I + \frac{\varepsilon}{2}$ . Ще оценим отгоре $S_f(\Pi) - s_f(\Pi_2)$. Делим елементите $\Delta_i$ на $\Pi$ на две групи - които се секат с някоя стена на елемнт на $\Pi_1$ и които се съдържат изцяло в елемент на $\Pi_1$. Събираемите, съответстващи на елементите от втория вид, участват както в $S_f(Pi)$, така и в $S_f(\Pi_2)$ и се съкращават. Нека индексите на елементите на $\Pi$ от първия вид са $I_1 \subset \{1, 2, ..., i_0 \}$ .
+
+Тогава 
+\begin{dmath*}
+S_f(\Pi) - S_f(\Pi_2) = \sum_{i\in I_1} M_i \mu_n (\Delta_i) - \sum_{i\in I_1} \sum_{j=1}^{j_0} M_{ij} \mu_n (\Delta_i\cap \Box_j)
+\end{dmath*}
+$$diam(\Delta_i)<\delta \Rightarrow \sum_{i\in I_1} \mu_n (\Delta_i) \leq 2 \delta P_{\Pi_1} \Rightarrow \left|\sum_{i\in I_1} M_i \mu_n (\Delta_i)\right|\leq 2 M \delta P_{\Pi_1}$$ .
+
+Аналогично
+$$\sum_{i\in I_1} \sum_{j=1}^{j_0} \mu_n (\Delta_i\cap \Box_j)\leq 2 \delta P_{\Pi_1} \Rightarrow \left|\sum_{i\in I_1} \sum_{j=1}^{j_0} M_{ij} \mu_n (\Delta_i\cap \Box_j)\right| \leq 2 \delta M P_{\Pi_1}$$ .
+
+Следователно
+\begin{dmath*}
+S_f(\Pi) - S_f(\Pi_2) \leq \left|\sum_{i\in I_1} M_i \mu_n (\Delta_i)\right| + \left|\sum_{i\in I_1} \sum_{j=1}^{j_0} M_{ij} \mu_n (\Delta_i\cap \Box_j)\right| \leq 4M P_{\Pi_1} \delta = 4 M P_{\Pi_1} \frac{\varepsilon}{8MP_{\Pi_1}} = \frac{\varepsilon}{2}
+\end{dmath*}
+
+Тогава имаме
+\begin{dmath*}
+S_f(\Pi) = (S_f(\Pi) - S_f(\Pi_2)) + S_f(\Pi_2) \leq \frac{\varepsilon}{2} + S_f(\Pi_2) < \frac{\varepsilon}{2} + I + \frac{\varepsilon}{2} = I+\varepsilon
+\end{dmath*}
+
+Аналогично доказваме, че $s_f(\Pi) > I-\varepsilon$ за всички $\Pi$ с достатъчно малък диаметър, с което доказателството е завършено.
+\end{proof}
+
+\section{Множества, пренебрежими по Лебег}
+
 \end{document} 
