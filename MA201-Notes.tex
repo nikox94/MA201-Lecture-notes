@@ -591,9 +591,6 @@ $$\bigcup_{m,k=1}^\infty \Delta^m_k =\bigcup_{m=1}^\infty \left( \bigcup_{k=1}^\
 От друга страна
 $$\sum_{m,k=1}^\infty \mu_n\left(\Delta^m_k \right)=\sum_{m=1}^\infty \left( \sum_{k=1}^\infty \mu_n\left(\Delta^m_k \right)\right)< 
 \sum_{m=1}^\infty \frac{\varepsilon}{2^m} = \varepsilon \ .$$
-
-%Тъй като всяко множество е пренебрежимо, то мярката му е по-малка от каквото и да е малко положително реално число. Можем да %изберем тези "епсилон" по следния начин. Нека $\mu(A_1) < \frac{\varepsilon}{2}$, $\mu(A_2) < \frac{\varepsilon}{4}$, %$\mu(A_3) < \frac{\varepsilon}{8}$, ..., $\mu(A_n) < \frac{\varepsilon}{2^n}$. Мярката на обединението е сумата от мерките на %множествата и следователно е по-малка от $\sum_{i=1}^\infty \frac{\varepsilon}{2^i} = \varepsilon$.
-%това са глупости, Никола, изобщо не сме въвеждали "мярка" за нещо различно от паралелотоп още...
 \end{proof}
 
 
@@ -646,8 +643,6 @@ $$\Delta := \left\{x\in\R^n \ : \  x_{i}^0 - \frac{\varepsilon}{\sqrt{n}} \leq x
 Ако $x$ е произволна точка от $\Delta$, можем да оценим разстоянието
 $$\left\| x-x_0\right\| =\sqrt{\sum_{i=1}^n\left( x_i-x^0_i\right)^2} \le \sqrt{\sum_{i=1}^n\left(\frac{\varepsilon}{\sqrt{n}}\right)^2} =\sqrt{n \cdot \frac{\varepsilon^2}{n}}=\varepsilon <2\varepsilon\ .$$
  Следователно $\Delta \subset B_{2\varepsilon}(x_0)\subset U$. Паралелотопът $\Delta$ е неизроден и тогава от горния пример следва, че не е пренебрежимо множество. Оттук и от $\Delta \subset U$ следва, че $U$ също не може да е пренебрежимо по Лебег.
-%Защо в лекциите толкова странно доказвате, че мярката на неизроден паралелотоп е ненулева? Не може ли да се докаже просто като се сметне директно мярката му. Тя очевидно ще е ненулева.
-%Вижте, ние дори НЕ УСПЯВАМЕ ДА ВЪВЕДЕМ МЯРКА ЗА ПРЕНЕБРЕЖИМИ ПО ЛЕБЕГ МНОЖЕСТВА, та да твърдим, че тя е нула.
 \end{proof}
 
 \subsection{Критерий на Лебег за интегруемост по Риман}
@@ -752,18 +747,16 @@ $$\sigma_f(\Pi^m,\xi^m)=\sigma_f(\Pi^m_1,\xi^m_1)+\sigma_f(\Pi^m_2,\xi^m_2)+\dot
 \end{proof}
 
 \item \textbf{Монотонност.} Нека $f:\Delta\longrightarrow\R$ е интегруема и $f(x)\ge 0$ за всяко $x\in \Delta$. Тогава $\int_\Delta f \ge 0$. 
-    
-    (Директно от факта, че малките суми на Дарбу за $f$ са неотрицателни.)
-    
-    \textbf{\textit{Следствие 1.}} Нека $f, g: \Delta \longrightarrow\R$ са интегруеми функции и $f(x)\ge g(x)$ за всяко $x\in \Delta$. Тогава $\int_\Delta f \ge \int_\Delta g$.
-    
-    (Наистина, $\int_\Delta f - \int_\Delta g=\int_\Delta (f -g) \ge 0$ от линейността и монотонността.)
+
+(Директно от факта, че малките суми на Дарбу за $f$ са неотрицателни.)
+
+\textbf{\textit{Следствие 1.}} Нека $f, g: \Delta \longrightarrow\R$ са интегруеми функции и $f(x)\ge g(x)$ за всяко $x\in \Delta$. Тогава $\int_\Delta f \ge \int_\Delta g$.
+
+(Наистина, $\int_\Delta f - \int_\Delta g=\int_\Delta (f -g) \ge 0$ от линейността и монотонността.)
 
 \textbf{\textit{Следствие 2.}} Ако $f:\Delta\longrightarrow\R$ е интегруема, то $|f|$ е интегруема и $|\int_\Delta f|\le \int_\Delta |f|$.
 
 (Интегруемостта е директна от критерия на Лебег, а неравенството от $-|f|\le f\le |f|$ и предишното следствие.)
 \end{enumerate}
-
-
 
 \end{document} 
