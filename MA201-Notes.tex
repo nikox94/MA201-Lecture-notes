@@ -70,6 +70,7 @@
 \newcommand*{\R}{\mathbb{R}}
 \newcommand*{\N}{\mathbb{N}}
 \newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\p}{\partial}
 
 \title{Лекционни записки по Математически Анализ}
 \author{проф. Надежда Рибарска \\ Набрани от Никола Юруков}
@@ -758,5 +759,60 @@ $$\sigma_f(\Pi^m,\xi^m)=\sigma_f(\Pi^m_1,\xi^m_1)+\sigma_f(\Pi^m_2,\xi^m_2)+\dot
 
 (Интегруемостта е директна от критерия на Лебег, а неравенството от $-|f|\le f\le |f|$ и предишното следствие.)
 \end{enumerate}
+
+\section{}
+
+\section{}
+
+\section{}
+
+\section{}
+
+\section{Лице на повърхнина}
+
+Една двумерна повърхнина в $\R^3$ може да бъде зададена като:
+\begin{enumerate}
+\item Уравнение $F(x_1, x_2, x_3) = 0$
+\item Параметризация $(x,y,z,) = F(u,v)$
+\end{enumerate}
+
+В този раздел (курс?) ние ще се фокусираме върху подхода с параметризации.
+
+Нека имаме повърхнина $S$, зададена чрез параметризацията $\alpha (\Omega ), \; \alpha \in C^1 (\Omega ), \; \Omega \subset \R^2$ (Алфа е от класа фукнции с непрекъснати частни производни в омега). $\alpha(u,v) = \left(\alpha_1 (u,v), \alpha_2 (u,v), \alpha_3 (u,v)\right)$.
+
+\begin{defn}
+$\alpha '(u,v) = \begin{pmatrix}
+	\frac{\p\alpha_1}{\p u} & \frac{\p\alpha_1}{\p v}\\
+	\frac{\p\alpha_2}{\p u} & \frac{\p\alpha_2}{\p v}\\
+	\frac{\p\alpha_3}{\p u} & \frac{\p\alpha_3}{\p v}\\
+\end{pmatrix}$ (u,v)
+\end{defn}
+
+За да е $\alpha$ валидна параметризация на повърхнина, ще искаме $rg(\alpha') = 2$ в $\Omega$. Това е достатъчно условие за съществуване на допирателно пространство.
+
+\begin{example} Цилиндрична повърхност.
+
+Нека имаме $\alpha:(\Delta\subset \R)\rightarrow \R^2$, която е гладка, регулярна параметризация на крива в равнината. Тогава $\varphi(t,z) = \begin{pmatrix}
+	\alpha_1(t)\\
+	\alpha_2(t)\\
+	z\\
+\end{pmatrix}$, където $t\in\Delta \;, z\in\R$, е възможна параметризация на цилиндрична повърхност. Нека проверим ранга на $\alpha'(t,z) = \begin{pmatrix}
+	\alpha_1' & 0\\
+	\alpha_2' & 0\\
+	0 & 1\\
+\end{pmatrix}$, който е $rg(\alpha') = 2$ от $(\alpha_1', \alpha_2') != \bold{0}$. Това означава, че дадената е валидна параметризация на повърхност.
+\end{example}
+
+\begin{example} Ротационна повърхнина.
+%TODO
+
+Ще се добави по-късно.
+\end{example}
+
+\begin{example} Сфера.
+%TODO
+
+Ще се добави по-късно.
+\end{example}
 
 \end{document} 
