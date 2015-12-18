@@ -815,4 +815,29 @@ $\alpha '(u,v) = \begin{pmatrix}
 Ще се добави по-късно.
 \end{example}
 
+\subsection{Допирателно пространство}
+Ако имаме параметризация на повърхнина $S = \varphi(\Omega), \; \varphi:\Omega\rightarrow \R^2, \; \varphi \in C^1, \; rg(\varphi')=2$ и вземем точка $p\in S$, нека разгледаме $S_p:=\{(p;v):VNIMANIE\exists \alpha:\Delta\rightarrow S, \; \Delta = 0 \text{ в } \R'\}, \; \alpha(0)=p, \alpha'(0)=vVNIMANIE$
+
+\begin{defn} Производна в точката $u$ по направление $v$. 
+
+$d\varphi(u)(v) := (\varphi(u)\; ; \;\frac{\p\varphi}{\p u_1}(u)\cdot v_1+\frac{\p\varphi}{\p u_2}(u)\cdot v_2)$.
+\end{defn}
+
+Още малко конструкции ще направим. Нека имаме регулярна крива в $\Omega$, зададена параметрично $\alpha(t), \; t\in\Delta$. Нека тази крива се изобразява, след прилагането на $\varphi$ в кривата $\beta(t) = \varphi(\alpha(t)), \; \beta(\Delta)\subset S$. Сега ще покажем, че $(\beta(t), \beta'(t)) = d\varphi(\alpha(t))(\alpha'(t))$.
+
+Наистина смятайки производната на $\beta(t) = \begin{pmatrix}
+	\varphi_1(\alpha_1(t),\alpha_2(t))\\
+	\varphi_2(\alpha_1(t),\alpha_2(t))\\
+	\varphi_3(\alpha_1(t),\alpha_2(t))\\
+\end{pmatrix}$, получаваме $\beta'(t) = \begin{pmatrix}
+	\frac{\p\varphi_1(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi_1(\alpha(t))}{\p u_2}\alpha_2'(t)\\
+	\frac{\p\varphi_2(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi_2(\alpha(t))}{\p u_2}\alpha_2'(t)\\
+	\frac{\p\varphi_3(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi_3(\alpha(t))}{\p u_2}\alpha_2'(t)\\
+\end{pmatrix} = \frac{\p\varphi(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi(\alpha(t))}{\p u_2}\alpha_2'(t)$. Това е.
+
+За да направим доказателството строго ще използваме следната лема.
+
+\begin{lem}
+Ако имаме гладка параметризация $\varphi$ и точка от нея $p=\varphi(u_0), \;u_0\in\Omega$, тогава $\exists U$ отворено множество в $\R^2$, $u_0\in U$ и $V\subset R^3, \; p\in V$ отворено множество, ...
+\end{lem}
 \end{document} 
