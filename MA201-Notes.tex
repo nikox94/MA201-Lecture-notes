@@ -816,7 +816,7 @@ $\alpha '(u,v) = \begin{pmatrix}
 \end{example}
 
 \subsection{Допирателно пространство}
-Ако имаме параметризация на повърхнина $S = \varphi(\Omega), \; \varphi:\Omega\rightarrow \R^2, \; \varphi \in C^1, \; rg(\varphi')=2$ и вземем точка $p\in S$, нека разгледаме $S_p:=\{(p;v):VNIMANIE\exists \alpha:\Delta\rightarrow S, \; \Delta = 0 \text{ в } \R'\}, \; \alpha(0)=p, \alpha'(0)=vVNIMANIE$
+Ако имаме параметризация на повърхнина $S = \varphi(\Omega), \; \varphi:\Omega\rightarrow \R^2, \; \varphi \in C^1, \; rg(\varphi')=2$ и вземем точка $p\in S$, нека разгледаме $S_p:=\{(p;v):\text{ВНИМАНИЕ, може да не е вярно: }\exists \alpha:\Delta\rightarrow S, \; \Delta = 0 \text{ в } \R'\}, \; \alpha(0)=p, \alpha'(0)=v$.
 
 \begin{defn} Производна в точката $u$ по направление $v$. 
 
@@ -838,6 +838,45 @@ $d\varphi(u)(v) := (\varphi(u)\; ; \;\frac{\p\varphi}{\p u_1}(u)\cdot v_1+\frac{
 За да направим доказателството строго ще използваме следната лема.
 
 \begin{lem}
-Ако имаме гладка параметризация $\varphi$ и точка от нея $p=\varphi(u_0), \;u_0\in\Omega$, тогава $\exists U$ отворено множество в $\R^2$, $u_0\in U$ и $V\subset R^3, \; p\in V$ отворено множество, ...
+Ако имаме гладка параметризация $\varphi$ и точка от нея $p=\varphi(u_0), \;u_0\in\Omega$, тогава $\exists U$ отворено множество в $\R^2$, $u_0\in U$ и $V\subset R^3 отворено множество, \; p\in V$, такива че $\varphi|_U:U\rightarrow S\cap V$ е биекция и $(\varphi|_U)^{-1}$ е непрекъсната и дори рестрикция на гладко изображение дефинирано във $V$.
 \end{lem}
+
+\begin{proof}
+Имаме, че $\varphi '(u_0) = \left. \begin{pmatrix}
+	\frac{\p\varphi_1}{\p u_1} & \frac{\p\varphi_1}{\p u_2}\\
+	\frac{\p\varphi_2}{\p u_1} & \frac{\p\varphi_2}{\p u_2}\\
+	\frac{\p\varphi_3}{\p u_1} & \frac{\p\varphi_3}{\p u_2}\\
+\end{pmatrix} \right|_{u_0} \neq 0$. Без ограничение на общността можем да си вземем първият минор ненулев...
+\end{proof}
+
+\begin{prop}
+Допирателното пространство на $\varphi$ в точка $u$ съвпада с $d\varphi(u)(\R^2)$, т.е. $S_{\varphi(u)}\equiv d\varphi(u)(\R^2) \equiv \{\varphi(u):l(\frac{\p\varphi}{\p u_1}, \frac{\p\varphi}{\p u_2})\}$.
+\end{prop}
+
+\begin{proof}
+%TODO
+... Ще се добави по-късно. Все пак ще бъде изпитано предполагам.
+\end{proof}
+
+\begin{defn}Мастър формула за лица и обеми на $k$-мерни обекти, вложени в $n$-мерното пространство.
+
+Ако имаме параметризация $\varphi:\Omega\rightarrow\R^n \text{ е инекция}, \; \Omega \subset \R^k, \; K \text{ измерим компакт }\subset \Omega, \; n\geq k, \; rg(\varphi')\equiv k, \; \varphi\in C^1(\Omega\rightarrow\R^n)$. И така ако $S = \varphi(K)\subset\R^n$ е к-мерна повърхност в $R^n$, то тогава:
+$$\mu_k(S) = \int_K \sqrt{det\left(({\varphi'}^T)(u)\cdot\varphi'(u)\right)}du$$
+\end{defn}
+
+\begin{example} $k=1$.
+
+$K\equiv [a,b]$, $\varphi(t) = \begin{pmatrix}
+	\varphi_1(t)\\
+	\dots\\
+	\varphi_n(t)\\
+\end{pmatrix}$, $\varphi'(t) = \begin{pmatrix}
+	\varphi_1'(t)\\
+	\dots\\
+	\varphi_n'(t)\\
+\end{pmatrix}$, следователно $\mu_1(S) = \int_K \sqrt{<\varphi(t),\varphi'(t)>}dt \; = \; \int_a^b \norm{\varphi'(t)}dt$
+\end{example}
+
+\section{Повърхнинен интеграл от първи род}
+
 \end{document} 
