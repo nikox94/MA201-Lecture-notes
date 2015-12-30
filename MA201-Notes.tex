@@ -749,114 +749,158 @@ $$\sigma_f(\Pi^m,\xi^m)=\sigma_f(\Pi^m_1,\xi^m_1)+\sigma_f(\Pi^m_2,\xi^m_2)+\dot
 
 \item \textbf{Монотонност.} Нека $f:\Delta\longrightarrow\R$ е интегруема и $f(x)\ge 0$ за всяко $x\in \Delta$. Тогава $\int_\Delta f \ge 0$. 
 
-(Директно от факта, че малките суми на Дарбу за $f$ са неотрицателни.)
+    (Директно от факта, че малките суми на Дарбу за $f$ са неотрицателни.)
 
-\textbf{\textit{Следствие 1.}} Нека $f, g: \Delta \longrightarrow\R$ са интегруеми функции и $f(x)\ge g(x)$ за всяко $x\in \Delta$. Тогава $\int_\Delta f \ge \int_\Delta g$.
+    \textbf{\textit{Следствие 1.}} Нека $f, g: \Delta \longrightarrow\R$ са интегруеми функции и $f(x)\ge g(x)$ за всяко $x\in \Delta$. Тогава $\int_\Delta f \ge \int_\Delta g$.
 
-(Наистина, $\int_\Delta f - \int_\Delta g=\int_\Delta (f -g) \ge 0$ от линейността и монотонността.)
+    (Наистина, $\int_\Delta f - \int_\Delta g=\int_\Delta (f -g) \ge 0$ от линейността и монотонността.)
 
 \textbf{\textit{Следствие 2.}} Ако $f:\Delta\longrightarrow\R$ е интегруема, то $|f|$ е интегруема и $|\int_\Delta f|\le \int_\Delta |f|$.
 
 (Интегруемостта е директна от критерия на Лебег, а неравенството от $-|f|\le f\le |f|$ и предишното следствие.)
 \end{enumerate}
 
-\section{}
+\section{Лекция 4: Множества, измерими по Пеано-Жордан. Мярка на Пеано-Жордан. Интеграл върху измеримо множество}
 
-\section{}
+\section{Лекция 5: Теорема на Фубини. Интегриране върху криволинеен трапец и цилиндрично тяло. Принцип на Кавалиери. Физически приложения на кратните интеграли. Примери}
 
-\section{}
+\section{Лекция 6: Теорема за смяна на променливите в кратен интеграл 1}
 
-\section{}
+Не влиза в материала за изпит!
 
-\section{Лице на повърхнина}
+\section{Лекция 7: Теорема за смяна на променливите в кратен интеграл 2}
 
-Една двумерна повърхнина в $\R^3$ може да бъде зададена като:
-\begin{enumerate}
-\item Уравнение $F(x_1, x_2, x_3) = 0$
-\item Параметризация $(x,y,z,) = F(u,v)$
-\end{enumerate}
+Също не влиза в изпитния материал.
 
-В този раздел (курс?) ние ще се фокусираме върху подхода с параметризации.
+\section{Лекция 8: Криволинеен интеграл от първи род}
 
-Нека имаме повърхнина $S$, зададена чрез параметризацията $\alpha (\Omega ), \; \alpha \in C^1 (\Omega ), \; \Omega \subset \R^2$ (Алфа е от класа фукнции с непрекъснати частни производни в омега). $\alpha(u,v) = \left(\alpha_1 (u,v), \alpha_2 (u,v), \alpha_3 (u,v)\right)$.
+\section{Лекция 9: Криволинеен интеграл от втори род}
 
-\begin{defn}
-$\alpha '(u,v) = \begin{pmatrix}
-	\frac{\p\alpha_1}{\p u} & \frac{\p\alpha_1}{\p v}\\
-	\frac{\p\alpha_2}{\p u} & \frac{\p\alpha_2}{\p v}\\
-	\frac{\p\alpha_3}{\p u} & \frac{\p\alpha_3}{\p v}\\
-\end{pmatrix}$ (u,v)
-\end{defn}
+\section{Лекция 10: Независимост от пътя на криволинейния интеграл от втори род}
 
-За да е $\alpha$ валидна параметризация на повърхнина, ще искаме $rg(\alpha') = 2$ в $\Omega$. Това е достатъчно условие за съществуване на допирателно пространство.
+\section{Лекция 11: Лице на повърхнина}
 
-\begin{example} Цилиндрична повърхност.
+В следващата част от курса ще изучаваме интегрирането върху двумерна повърхнина в тримерното евклидово пространство. Такава повърхнина може да бъде зададена с уравнение, но в този курс ние ще използваме параметричния подход.
 
-Нека имаме $\alpha:(\Delta\subset \R)\rightarrow \R^2$, която е гладка, регулярна параметризация на крива в равнината. Тогава $\varphi(t,z) = \begin{pmatrix}
+\subsection{Елементарна гладка параметрично зададена повърхнина. Допирателно пространство}
+
+Параметрите ще се менят в област $\Omega$, съдържаща се в $\R^2$. Най-често ще ги означаваме с $u=(u_1,u_2)\in \Omega$. Параметризацията $\varphi$ е гладко изображение с дефиниционна област $\Omega$ и област от стойности $\R^3$. Условието за регулярност (съответстващо на условието производната да не се анулира в случая на параметрично зададена крива) е матрицата $\varphi'(u)$ да има пълен ранг във всяка точка на $\Omega$. Скаларно
+ записано,
+ 
+$$\varphi(u_1,u_2)=\left( \begin{array}{c}\varphi_1(u_1,u_2)\\\varphi_2(u_1,u_2)\\\varphi_3(u_1,u_2)\end{array}\right) \ , \ \ 
+\varphi'(u_1,u_2)=\left( \begin{array}{cc}\frac{\partial\varphi_1}{\partial u_1}(u_1,u_2)&\frac{\partial\varphi_1}{\partial u_2}(u_1,u_2)\\ \frac{\partial\varphi_2}{\partial u_1}(u_1,u_2)&\frac{\partial\varphi_2}{\partial u_2}(u_1,u_2)\\ \frac{\partial\varphi_3}{\partial u_1}(u_1,u_2)&\frac{\partial\varphi_3}{\partial u_2}(u_1,u_2)\end{array}\right)$$
+и условията са $\varphi \in C^1(\Omega,\R^3)$ (т.е. частните производни $\frac{\partial\varphi_i}{\partial u_j}$, $i\in \{ 1,2,3\}$, $j\in \{ 1,2\}$ съществуват и са непрекъснати в $\Omega$) и $\textrm{rg} \; \varphi' =2$ в $\Omega$. Тогава множеството $S=\varphi(\Omega)$ наричаме \textit{елементарна гладка параметрично зададена повърхнина}.
+
+\bigskip
+
+Кривите $\varphi(t,u_2)$, $(t,u_2)\in \Omega$, където $u_2$ е фиксирано произволно, лежат върху $S$ и се наричат \textit{координатни линии}. Другото семейство координатни линии е $\varphi(u_1,t)$, $(u_1,t)\in \Omega$, където $u_1$ е фиксирано произволно.
+
+
+\begin{example} Цилиндрична повърхнина.
+
+Нека $\Gamma$ е гладка регулярна параметрично зададена равнинна крива. Означаваме с $\alpha\in C^1(\Delta , \R^2)$, където $\Delta$ е отворен интервал и $\dot\alpha \not = \Z$, една параметризация на 
+$\Gamma=\alpha(\Delta)$. Тогава $\varphi(t,z) = \begin{pmatrix}
 	\alpha_1(t)\\
 	\alpha_2(t)\\
 	z\\
-\end{pmatrix}$, където $t\in\Delta \;, z\in\R$, е възможна параметризация на цилиндрична повърхност. Нека проверим ранга на $\alpha'(t,z) = \begin{pmatrix}
-	\alpha_1' & 0\\
-	\alpha_2' & 0\\
+\end{pmatrix}$, където $t\in\Delta \;, z\in\R$, е параметризация на цилиндричната повърхност $S=\varphi(\Delta\times \R)$. Наистина, рангът на $\alpha'(t,z) = \begin{pmatrix}
+	\dot\alpha_1 (t)& 0\\
+	\dot\alpha_2 (t)& 0\\
 	0 & 1\\
-\end{pmatrix}$, който е $rg(\alpha') = 2$ от $(\alpha_1', \alpha_2') != \bold{0}$. Това означава, че дадената е валидна параметризация на повърхност.
+\end{pmatrix}$ е пълен, защото  ако допуснем, че всички минори от втори ред на $\alpha'(t,z)$ са нули, ще получим $\dot\alpha (t) = \Z$, което е противоречие с регулярността на кривата. 
 \end{example}
 
 \begin{example} Ротационна повърхнина.
-%TODO
 
-Ще се добави по-късно.
-\end{example}
+Нека $\Gamma$ е гладка регулярна параметрично зададена равнинна крива, лежаща в горната полуравнина. Означаваме с $\alpha\in C^1(\Delta , \R^2)$, където $\Delta$ е отворен интервал, $\dot\alpha \not = \Z$ и $\alpha_2 >0$, една параметризация на
+$\Gamma=\alpha(\Delta)$. Тогава
+$$\varphi(t,\theta)=\left( \begin{array}{c}\alpha_1(t)\\ \alpha_2(t)\cos \theta\\ \alpha_2(t)\sin \theta\end{array}\right) \ ,  \mbox{ където }t\in \Delta \mbox{ и } \theta\in \R \ ,$$
+задава гладка повърхнина в пространството. От проверка се нуждае само условието за ранга. Пресмятаме минорите от втори ред на
+$$\varphi'(t,\theta)=\left( \begin{array}{cc}\dot\alpha_1(t)&0 \\ \dot\alpha_2(t)\cos \theta & -\alpha_2(t)\sin \theta\\ \dot\alpha_2(t)\sin \theta&\alpha_2(t)\cos \theta
+\end{array}\right) \ .$$
+Ако допуснем, че всички те се анулират, имаме
+$$-\dot\alpha_1(t)\alpha_2(t)\sin \theta=\dot\alpha_1(t)\alpha_2(t)\cos
+ \theta=\alpha_2(t)\dot\alpha_2(t)(\cos^2\theta+\sin^2\theta
+ )=0$$
+ и следователно, отчитайки $\alpha_2(t) >0$ и факта, че $\cos \theta$ и $\sin \theta$ не могат да се анулират едновременно, получаваме $\dot\alpha_2(t)=\dot\alpha_1(t)=0$, противоречие с регулярността на кривата.
+ \end{example}
 
 \begin{example} Сфера.
-%TODO
 
-Ще се добави по-късно.
+В сегашната постановка не можем да напишем параметризация на цялата сфера (това е дълбок и неочевиден факт), затова ще използваме стандартните ъгли, за да напишем параметризация на сферата без двата полюса:
+$$\varphi(\theta_1,\theta_2)=\left( \begin{array}{c}R\cos\theta_1 \sin\theta_2 \\ R\sin\theta_1 \sin\theta_2\\ R\cos\theta_2\end{array}\right) \ , \ \theta_1\in \R \ , \theta_2\in (0,\pi) \ .$$
+За да проверим условието за ранга, пресмятаме минорите на 
+$$\varphi'(\theta_1,\theta_2)=\left( \begin{array}{cc} -R\sin\theta_1 \sin\theta_2&R\cos\theta_1 \cos\theta_2 \\ R\cos\theta_1 \sin\theta_2 & R\sin\theta_1 \cos\theta_2\\ 0& -R\sin\theta_2
+\end{array}\right)$$ и използваме, че $\sin\theta_2>0$, за да се убедим, че не е възможно всички минори от втори ред на горната матрица да се анулират.
 \end{example}
 
-\subsection{Допирателно пространство}
-Ако имаме параметризация на повърхнина $S = \varphi(\Omega), \; \varphi:\Omega\rightarrow \R^2, \; \varphi \in C^1, \; rg(\varphi')=2$ и вземем точка $p\in S$, нека разгледаме $S_p:=\{(p;v):\text{ВНИМАНИЕ, може да не е вярно: }\exists \alpha:\Delta\rightarrow S, \; \Delta = 0 \text{ в } \R'\}, \; \alpha(0)=p, \alpha'(0)=v$.
+\bigskip
 
-\begin{defn} Производна в точката $u$ по направление $v$. 
+За упражнение разберете как изглеждат двете семейства координатни линии във всеки от горните примери.
 
-$d\varphi(u)(v) := (\varphi(u)\; ; \;\frac{\p\varphi}{\p u_1}(u)\cdot v_1+\frac{\p\varphi}{\p u_2}(u)\cdot v_2)$.
+\bigskip
+
+Гладкостта на параметризацията и условието за ранга гарантират съществуването на еднозначно определена допирателна равнина към повърхнината във всяка точка. За да се убедим в това, първо ще дадем геометрично определение на понятието ``допирателно пространство'', което се съгласува с геометричната ни интуиция. И тъй, нека $S$ е двумерна повърхнина в $\R^3$ и нека $p\in S$. С $S_p$ ще означаваме множеството от свързаните вектори $(p;w)\in S\times \R^3$, които са допирателни в точката $p$ към някаква гладка крива, лежаща изцяло в $S$:
+$$S_p:=\{(p;w)\in S\times \R^3 \ : \ \exists \ \delta>0 \ \exists \ \alpha \in C^1(\Delta , S) \  (\Delta\equiv (-\delta,\delta)) , \ \alpha(0)=p, \ \dot\alpha(0)=w\} \ .$$
+Ако не знаем нещо повече за $S$, предварително не е ясно дали $S_p$ е равнина и дори дали не се състои само от нулевия вектор. Ще се убедим, че $\{ w\in \R^3 : \ (p;w)\in S_p\}$ е двумерно линейно подпространство на $\R^3$, ако $S$ е елементарна гладка параметрично зададена повърхнина. 
+
+\begin{defn} Нека $\varphi : \Omega \longrightarrow \R^3$, където $\Omega$ е област в $\R^2$, е гладко изображение. Диференциал на $\varphi$ наричаме изображението $\textrm{d}\varphi:\Omega\times \R^2\longrightarrow \R^3\times \R^3$, зададено с формулата
+$$\textrm{d}\varphi (u;v):= \left(\varphi(u)\; ; \;\frac{\partial\varphi}{\partial u_1}(u)\cdot v_1+\frac{\partial\varphi}{\partial u_2}(u)\cdot v_2\right)\ , $$ където $$v=(v_1,v_2) \ , \ \frac{\partial\varphi}{\partial u_1}(u)=\left( \begin{array}{c}\frac{\partial\varphi_1}{\partial u_1}(u)\\ \frac{\partial\varphi_2}{\partial u_1}(u)\\ \frac{\partial\varphi_3}{\partial u_1}(u)\end{array}\right) \mbox{ и } \frac{\partial\varphi}{\partial u_2}(u)=\left( \begin{array}{c}\frac{\partial\varphi_1}{\partial u_2}(u)\\ \frac{\partial\varphi_2}{\partial u_2}(u)\\ \frac{\partial\varphi_3}{\partial u_2}(u)\end{array}\right) \ .$$
 \end{defn}
 
-Още малко конструкции ще направим. Нека имаме регулярна крива в $\Omega$, зададена параметрично $\alpha(t), \; t\in\Delta$. Нека тази крива се изобразява, след прилагането на $\varphi$ в кривата $\beta(t) = \varphi(\alpha(t)), \; \beta(\Delta)\subset S$. Сега ще покажем, че $(\beta(t), \beta'(t)) = d\varphi(\alpha(t))(\alpha'(t))$.
-
-Наистина смятайки производната на $\beta(t) = \begin{pmatrix}
+ За да разберем смисъла на тази дефиниция, ще покажем, че ако $\varphi$ носи една гладка крива $\Gamma \subset\Omega$ в кривата $\tilde{\Gamma}=\varphi(\Gamma)$, то $\textrm{d}\varphi$ носи допирателните вектори към $\Gamma$ в допирателни вектори към $\tilde{\Gamma}$ в съответната точка. 
+ 
+\begin{lem}\label{diff_lines}
+ Нека $\varphi : \Omega \longrightarrow \R^3$, където $\Omega$ е област в $\R^2$, е гладко изображение и нека $\Gamma=\alpha(\Delta)$ е гладка крива ($\Delta$ е интервал и $\alpha\in C^1(\Delta,\Omega)$). Нека $\tilde{\Gamma}=\varphi(\Gamma)=\varphi(\beta(\Delta))$ е нейният образ ($\beta(t):=\varphi(\alpha(t))$, $t\in \Delta$). Тогава $\textrm{d}\varphi(\alpha(t);\dot\alpha(t))=(\beta(t);\dot\beta(t))$, $t\in \Delta$.
+\end{lem}
+\begin{proof}
+Наистина, пресмятайки производната на $\beta(t) = \begin{pmatrix}
 	\varphi_1(\alpha_1(t),\alpha_2(t))\\
 	\varphi_2(\alpha_1(t),\alpha_2(t))\\
 	\varphi_3(\alpha_1(t),\alpha_2(t))\\
-\end{pmatrix}$, получаваме $\beta'(t) = \begin{pmatrix}
-	\frac{\p\varphi_1(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi_1(\alpha(t))}{\p u_2}\alpha_2'(t)\\
-	\frac{\p\varphi_2(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi_2(\alpha(t))}{\p u_2}\alpha_2'(t)\\
-	\frac{\p\varphi_3(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi_3(\alpha(t))}{\p u_2}\alpha_2'(t)\\
-\end{pmatrix} = \frac{\p\varphi(\alpha(t))}{\p u_1}\alpha_1'(t)+\frac{\p\varphi(\alpha(t))}{\p u_2}\alpha_2'(t)$. Това е.
+\end{pmatrix}$, получаваме $\dot\beta (t) = \begin{pmatrix}
+	\frac{\partial \varphi_1(\alpha(t))}{\partial  u_1}\dot\alpha_1(t)+\frac{\partial \varphi_1(\alpha(t))}{\partial  u_2}\dot\alpha_2(t)\\
+	\frac{\partial \varphi_2(\alpha(t))}{\partial  u_1}\dot\alpha_1 (t)+\frac{\partial \varphi_2(\alpha(t))}{\partial  u_2}\dot\alpha_2 (t)\\
+	\frac{\partial \varphi_3(\alpha(t))}{\partial  u_1}\dot\alpha_1 (t)+\frac{\partial \varphi_3(\alpha(t))}{\partial  u_2}\dot\alpha_2 (t)\\
+\end{pmatrix} = \frac{\partial \varphi(\alpha(t))}{\partial  u_1}\dot\alpha_1 (t)+\frac{\partial \varphi(\alpha(t))}{\partial  u_2}\dot\alpha_2 (t)$. 
+\end{proof}
 
-За да направим доказателството строго ще използваме следната лема.
+Да отбележим, че от горното пресмятане се получава, че свързаните вектори \\$\left(\varphi(u);\frac{\partial\varphi}{\partial u_1}(u)\right)$ са допирателни към първото семейство координатни линии, а $\left(\varphi(u);\frac{\partial\varphi}{\partial u_2}(u)\right)$ са допирателни към второто семейство координатни линии.
 
-\begin{lem}
-Ако имаме гладка параметризация $\varphi$ и точка от нея $p=\varphi(u_0), \;u_0\in\Omega$, тогава $\exists U$ отворено множество в $\R^2$, $u_0\in U$ и $V\subset R^3 отворено множество, \; p\in V$, такива че $\varphi|_U:U\rightarrow S\cap V$ е биекция и $(\varphi|_U)^{-1}$ е непрекъсната и дори рестрикция на гладко изображение дефинирано във $V$.
+
+\begin{lem}\label{explicit}
+Нека $\Omega$ е област в равнината, $\varphi\in (\Omega ,\R^3)$ и $\textrm{rg}\; \varphi'=2$ в $\Omega$. Тогава за всяка точка $p=\varphi(u)$ от елементарната гладка параметрично зададена повърхнина $S=\varphi(\Omega)$ съществуват $U\subset\Omega$ околност на $u$ и $V$ околност $p$ такива, че $\varphi\restriction_{U}$ е биекция между $U$ и $S\cap V$. При това обратната биекция $\left(\varphi\restriction_{U}\right)^{-1}$ е рестрикция върху $S\cap V$ на гладко изображение, дефинирано във $V$.
 \end{lem}
 
 \begin{proof}
-Имаме, че $\varphi '(u_0) = \left. \begin{pmatrix}
-	\frac{\p\varphi_1}{\p u_1} & \frac{\p\varphi_1}{\p u_2}\\
-	\frac{\p\varphi_2}{\p u_1} & \frac{\p\varphi_2}{\p u_2}\\
-	\frac{\p\varphi_3}{\p u_1} & \frac{\p\varphi_3}{\p u_2}\\
-\end{pmatrix} \right|_{u_0} \neq 0$. Без ограничение на общността можем да си вземем първият минор ненулев...
+Тъй като $\textrm{rg} \; \varphi '(u)=2$,  без ограничение на общността можем да приемем, че 
+$$det\left( \begin{array}{cc}\frac{\partial\varphi_1}{\partial u_1}(u)&\frac{\partial\varphi_1}{\partial u_2}(u)\\ \frac{\partial\varphi_2}{\partial u_1}(u)&\frac{\partial\varphi_2}{\partial u_2}(u)\end{array}\right)\not = 0 \ .$$
+От Теоремата за обратната функция получаваме, че съществуват $U\subset\Omega$ околност на $u$ и $\tilde{V}$ околност $(\varphi_1(u),\varphi_2(u))$ такива, че 
+$$\left| \begin{array}{c}x_1=\varphi_1(v_1,v_2)\\ x_2=\varphi_2(v_1,v_2)\end{array}\right. \Leftrightarrow 
+\left| \begin{array}{c}v_1=\psi_1(x_1,x_2)\\ v_2=\psi_2(x_1,x_2)\end{array}\right.$$
+за $(v_1,v_2)\in U$ и $(x_1,x_2)\in\tilde{V}$, където $\psi_1$ и $\psi_2$ са гладки функции, дефинирани във  $\tilde{V}$. Полагаме $V:= \tilde{V}\times \R$ и забелязваме, че 
+$$\left(\varphi\restriction_{U}\right)^{-1}(x_1,x_2,x_3)=(\psi_1(x_1,x_2),\psi_2(x_1,x_2))\in U$$
+за $(x_1,x_2,x_3)\in {V}\cap S$. Освен това
+$$S\cap V =\left\{ (x_1,x_2,x_3)\in \R^3 \ : \  (x_1,x_2)\in \tilde{V}, \ x_3=\varphi_3(\psi_1(x_1,x_2),\psi_2(x_1,x_2))\right\}$$
+и $V$ е околност на $p$. 
 \end{proof}
 
-\begin{prop}
-Допирателното пространство на $\varphi$ в точка $u$ съвпада с $d\varphi(u)(\R^2)$, т.е. $S_{\varphi(u)}\equiv d\varphi(u)(\R^2) \equiv \{\varphi(u):l(\frac{\p\varphi}{\p u_1}, \frac{\p\varphi}{\p u_2})\}$.
-\end{prop}
+Забележете, че от горното доказателство се вижда, че всяка елементарна гладка параметрично зададена повърхнина локално може да бъде задена явно, т.е. две от променливите могат да бъдат използвани за параметри, а третата да е тяхна функция.
+
+\begin{thm}
+Нека $\Omega$ е област в равнината, $\varphi\in (\Omega ,\R^3)$ и $\textrm{rg}\; \varphi'=2$ в $\Omega$. Тогава за всяка точка $p=\varphi(u)$ от елементарната гладка параметрично зададена повърхнина $S=\varphi(\Omega)$ е в сила $S_p\equiv \textrm{d}\varphi (u;\R^2)$, т.е. $\{ w\in \R^3 : \ (p;w)\in S_p\}$ е линейната обвивка на векторите $\frac{\partial\varphi}{\partial u_1}(u)$ и $\frac{\partial\varphi}{\partial u_2}(u)$:
+$$S_{p}\equiv \left\{ (p;w)\in S\times \R^3 \ : \ w=\frac{\partial\varphi}{\partial u_1}(u)\cdot v_1+\frac{\partial\varphi}{\partial u_2}(u)\cdot v_2 \mbox{ за някой вектор } (v_1,v_2)\in \R^2\right\} \ .$$
+\end{thm}
 
 \begin{proof}
-%TODO
-... Ще се добави по-късно. Все пак ще бъде изпитано предполагам.
+Нека $(p;w)\in S_{p}$. Следователно съществува гладко изображение \\$\beta:(-\delta,\delta)\longrightarrow S$ (тук $\delta$ е някакво положително число) такова, че $(p;w)=(\beta(0),\dot{\beta}(0))$. Нека $U$ и $V$ са околностите на $u$ и $p$ съответно, получени от Лема \ref{explicit}. С цената на намаляване на $\delta$ можем да предположим, че $\beta(t)\in V$ за всяко $t\in (-\delta,\delta)$. Полагаме $\alpha(t):= \left(\varphi\restriction_{U}\right)^{-1} (\beta(t))$ за $t\in (-\delta,\delta)$. Ясно е, че това е параметризация на гладка крива в $U$, за която $\alpha(0)=u$ и $\beta(t)=\varphi(\alpha(t))$. Сега Лема \ref{diff_lines} ни дава $$\textrm{d}\varphi(u;\dot\alpha(0))=\textrm{d}\varphi(\alpha(0);\dot\alpha(0))=(\beta(0);\dot\beta(0))=(p;w) \ .$$
+Обратно, нека $(p;w)=\textrm{d}\varphi(u;v)$. За достатъчно малко $\delta$ имаме, че $\alpha(t)=u+t\cdot v\in \Omega$ за всяко $t\in (-\delta,\delta)$. Тогава $\beta(t)=\varphi(\alpha(t))$, $t\in (-\delta,\delta)$ е гладка крива в $S$, като $\beta(0)=\varphi(\alpha(0))=\varphi(u)=p$. Отново от Лема \ref{diff_lines} и от $\dot\alpha(t)=v$ получаваме
+$$(p;w)=\textrm{d}\varphi(u;v)=\textrm{d}\varphi(\alpha(0);\dot\alpha(0))=(\beta(0);\dot\beta(0))\in S_p \ .$$
 \end{proof}
+
+\subsection{Формула за лице на гладка повърхнина}
+
+%Дотук съм стигнала с редактирането.
 
 \begin{defn}Мастър формула за лица и обеми на $k$-мерни обекти, вложени в $n$-мерното пространство.
 
@@ -877,6 +921,12 @@ $K\equiv [a,b]$, $\varphi(t) = \begin{pmatrix}
 \end{pmatrix}$, следователно $\mu_1(S) = \int_K \sqrt{<\varphi(t),\varphi'(t)>}dt \; = \; \int_a^b \norm{\varphi'(t)}dt$
 \end{example}
 
-\section{Повърхнинен интеграл от първи род}
+\section{Лекция 12: Повърхнинен интеграл от първи род}
+
+\section{Лекция 13: Повърхнинен интеграл от втори род. Повърхнини с край. Индуцирана ориентация на края}
+
+\section{Лекция 14: Формула на Стокс}
+
+\section{Лекция 15: Формула на Гаус-Остроградски}
 
 \end{document} 
